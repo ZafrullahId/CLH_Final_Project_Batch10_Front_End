@@ -1,0 +1,7 @@
+.form_wrap {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 30px;
+    flex: 1 1 0px;
+    justify-content: space-between;
+}
