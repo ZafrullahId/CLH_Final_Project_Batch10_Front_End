@@ -111,25 +111,28 @@
                     <input class="form-control border-0" type="search" placeholder="Search">
                 </form>
                 <div class="navbar-nav align-items-center ms-auto">
-                    <div class="start-btn">
-                        <a href="#">Add product</a>
-                    </div>
-                    <div class="nav-item dropdown">
+                    <div class="flex-row" >
 
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-
-                            <i class="fa fa-envelope me-lg-2" id="message"></i>
-                            <span class="d-none d-lg-inline-flex">Reviews</span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-                            <div id="reviews" style="max-height: 420px !important;">
-
+                        <div class="start-btn">
+                            <a href="#">Add product</a>
+                        </div>
+                        <div class="nav-item dropdown">
+    
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+    
+                                <i class="fa fa-envelope me-lg-2" id="message"></i>
+                                <span class="d-none d-lg-inline-flex">Reviews</span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
+                                <div id="reviews" style="max-height: 420px !important;">
+    
+                                </div>
+                                <a href="reviews.html" class="dropdown-item text-center">See All</a>
+                                <hr class="dropdown-divider">
                             </div>
-                            <a href="reviews.html" class="dropdown-item text-center">See All</a>
-                            <hr class="dropdown-divider">
                         </div>
                     </div>
-                    <div class="nav-item dropdown">
+                    <!-- <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             <i class="fa fa-bell me-lg-2"></i>
                             <span class="d-none d-lg-inline-flex">Notificatin</span>
@@ -156,15 +159,15 @@
                             <hr class="dropdown-divider">
                             <a href="#" class="dropdown-item text-center">See all notifications</a>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            <img class="rounded-circle me-lg-2" src="img/user.jpg" alt=""
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" id="my-profile">
+                            <!-- <img class="rounded-circle me-lg-2" src="img/user.jpg" alt=""
                                 style="width: 40px; height: 40px;">
-                            <span class="d-none d-lg-inline-flex">John Doe</span>
+                            <span class="d-none d-lg-inline-flex">John Doe</span> -->
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-                            <a href="#" class="dropdown-item">My Profile</a>
+                            <a href="profile.html" class="dropdown-item">My Profile</a>
                             <a href="#" class="dropdown-item" onclick="logout()">Log Out</a>
                         </div>
                     </div>

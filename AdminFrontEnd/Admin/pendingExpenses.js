@@ -2,7 +2,7 @@ let notification_box = document.querySelector("#notify");
 let unread_notifications_number = document.querySelector(".unread-notifications-number");
 
 
-let NOTIFICATIONTEMPLATE = `<div class="row single-notification-box unread">
+let NOTIFICATIONTEMPLATE = `<div class="row single-notification-box unread" id="id{{IDD}}">
 <div class="col-1 profile-picture">
         <img class="rounded-circle" src="http://127.0.0.1:5501/wwwroot/Images/{{IMAGE}}" alt="profile picture"
         class="img-fluid" style="width: 55px; height: 55px;">
@@ -65,13 +65,13 @@ async function npendingExpPage() {
     if (request.data == null) {
         return
     }
-    else{
+    else {
 
         let unread_numbers = request.data.filter(x => x.enumApprovalStatus == 2)
         unread_notifications_number.innerText = unread_numbers.length
         notification_box.innerHTML = "";
         request.data.forEach(x => {
-    
+
             // let manager = response.data[0];
             let n = NOTIFICATIONTEMPLATE
                 .replace('{{IMAGE}}', x.managerImage)
@@ -84,9 +84,10 @@ async function npendingExpPage() {
                 .replace('{{ID4}}', x.id)
                 .replace('{{ID6}}', x.id)
                 .replace('{{ID5}}', x.id)
+                .replace('{{IDD}}', x.id)
                 .replace('{{CREATED-TIME}}', x.createdTime)
                 .replace('{{APPROVAL-STATUS}}', x.stringApprovalStatus)
-    
+
             notification_box.innerHTML += n
             let ide = x.id
             if (x.enumApprovalStatus == 1 || x.enumApprovalStatus == 3) {
@@ -132,7 +133,8 @@ function Reject(id) {
                 .then(function (res) {
                     if (res.success == true) {
                         swal("Successfully Rejected", "You've successfully rejected the request", "success");
-                        npendingExpPage();
+                        let me = document.querySelector(`#id${id}`)
+                        me.innerHTML = ""
                     }
                     else {
                         // window.alert(res.message);
@@ -156,7 +158,8 @@ let ApproveRequest = (id) => {
         .then(function (response) {
             if (response.success == true) {
                 swal("Approved!", "You've Approved the request", "success");
-                npendingExpPage();
+                let me = document.querySelector(`#id${id}`)
+                me.innerHTML = ""
             }
             else if (response.success == false) {
                 swal("Opps!", `${response.message}`, "warning");
@@ -179,9 +182,9 @@ function findMatches(wordToMatch, expenses) {
 
 function displayMatches() {
     const matchObj = findMatches(this.value, expenses);
-            const html = matchObj.map(x => {
+    const html = matchObj.map(x => {
 
-                let ht =  `<div class="row single-notification-box unread">
+        let ht = `<div class="row single-notification-box unread">
 <div class="col-1 profile-picture">
         <img class="rounded-circle" src="http://127.0.0.1:5501/wwwroot/Images/${x.managerImage}" alt="profile picture"
         class="img-fluid" style="width: 55px; height: 55px;">
@@ -210,15 +213,15 @@ function displayMatches() {
             </div>                      
         </div>
 </div>`
-                return ht
-            }).join('')
-            if (searchInput.value == '') {
-                notificationPage();
-            }
-            else{
-                notification_box.innerHTML = html;
-                disabledbutton();
-            }
+        return ht
+    }).join('')
+    if (searchInput.value == '') {
+        notificationPage();
+    }
+    else {
+        notification_box.innerHTML = html;
+        disabledbutton();
+    }
 }
 const searchInput = document.querySelector('#search');
 searchInput.addEventListener('change', displayMatches);

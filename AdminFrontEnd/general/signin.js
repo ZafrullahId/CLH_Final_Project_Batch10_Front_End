@@ -28,7 +28,7 @@ function Submit() {
             window.alert(res.message)
             
         }
-        else if(res.success == true && res.data.role == "admin")
+        else if(res.success == true && res.data.role == "admin" || res.data.role == "ware house manager" || res.data.role == "production manager" || res.data.role == "sales manager")
         {
             localStorage.setItem("Id", res.data.id);
             localStorage.setItem("Role", res.data.role);
@@ -54,9 +54,10 @@ function Submit() {
         }
         else
         {
+            window.alert(res.message)
             // localStorage.setItem("Id", res.data.id);
             // localStorage.setItem("Role", res.data.role);
-            // location.href = "file:///C:/Users/Zafrullah/Downloads/dashmin-1.0.0/dashmin-1.0.0/index.html"
+            // location.href = "index.html"
             // location.reload();
         }
     })

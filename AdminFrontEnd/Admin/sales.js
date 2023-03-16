@@ -1,6 +1,7 @@
 let table_body = document.querySelector('.t-body');
 let sales_table_head = document.getElementById("table-head")
 let year = document.querySelector('.yearpicker')
+let colexp = document.querySelector(".colpas")
 
 
 let TABLEBODYTEMPLATE = ` <tr>
@@ -29,7 +30,8 @@ let DETAILEDTABLEBODYTEMPLATE = ` <tr>
 <td><input type="submit" class="btn btn-primary" value="Details" style="font-size: 12px;" id="{{ID}}" onclick="displayAddressForOrder({{ADRESS-ID}})"></td>
 </tr>`
  
-let SALESTABLEHEADTEMPLATE = `<tr>
+let SALESTABLEHEADTEMPLATE = `
+<tr>
 <th scope="col">S/N</th>
 <th scope="col">Customer</th>
 <th scope="col">Quantity Bought</th>
@@ -44,6 +46,13 @@ let getAllSales = () => {
     fetch(`https://localhost:5001/api/Sales/GetSalesForThYear/${year.value}`)
     .then(res => res.json())
         .then(function (response) {
+            sales_table_head.innerHTML = `<tr>
+            <th scope="col">S/N</th>
+            <th scope="col">Product name</th>
+            <th scope="col">Product Price</th>
+            <th scope="col">Amount Earned</th>
+            <th scope="col">Action</th>
+        </tr>`
             table_body.innerHTML = "";
             // window.alert(response.message);
             
@@ -68,6 +77,8 @@ let displayDetailsforProduct = (id) => {
     .then(function(response){
         let matchestodisplay = document.getElementById(`${id}`)
         // window.alert(matchestodisplay.id)
+        colexp.children[0].innerHTML = `<input type="submit" name="" id="" value="Colaps" style="padding: 0px 7px 0px 7px;" onclick="getAllSales()">`
+        // console.log(colexp)
         fetchdata(matchestodisplay.id)
         table_body.innerHTML = ""
         sales_table_head.innerHTML = SALESTABLEHEADTEMPLATE

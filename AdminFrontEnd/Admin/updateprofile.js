@@ -4,13 +4,16 @@ myform.addEventListener('submit', (x) => {
     console.log(myform);
     // let Token = localStorage.getItem("token");
     // console.log(Token);
+    // let pics = document.querySelector("#prodp")
+    // console.log(pics.value)
     let sendForm = new FormData(myform);
-    console.log(sendForm.get("name"));
+    console.log(sendForm.get("username"));
+    console.log(sendForm.get("imageUrl"));
     fetch(`https://localhost:5001/api/Admin/Update/${id}`,
         {
             method: "PUT",
             body: sendForm,
-            
+
         })
         .then((res) => {
             console.log(res);
@@ -20,6 +23,7 @@ myform.addEventListener('submit', (x) => {
             console.log(value.success);
             if (value.success == true) {
                 window.alert(value.message);
+                viewProfile();
             }
             else {
                 window.alert(value.message);

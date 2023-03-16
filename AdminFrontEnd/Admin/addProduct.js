@@ -1,4 +1,4 @@
-
+let image = document.querySelector("#ImageUrl")
 const myform = document.querySelector('#add-form');
 myform.addEventListener('submit', (x) => {
     x.preventDefault();
@@ -6,7 +6,8 @@ myform.addEventListener('submit', (x) => {
     // let Token = localStorage.getItem("token");
     // console.log(Token);
     let sendForm = new FormData(myform);
-    console.log(sendForm.get("name"));
+    // window.alert(sendForm.get("imageUrl"))
+    // window.alert(image.value);
     fetch(`https://localhost:5001/api/Product/CreateProduct`,
         {
             method: "POST",
