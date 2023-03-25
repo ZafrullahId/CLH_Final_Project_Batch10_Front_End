@@ -25,7 +25,13 @@
         return false;
     });
 
+   // Sidebar opacity
+ const menuIcon = document.querySelector (".sidebar-toggler");
+const container = document.querySelector('.main');
 
+menuIcon.addEventListener('click' , () => {
+  container.classList.toggle('main-opacity');
+});
     // Sidebar Toggler
     $('.sidebar-toggler').click(function () {
         $('.sidebar, .content').toggleClass("open");
