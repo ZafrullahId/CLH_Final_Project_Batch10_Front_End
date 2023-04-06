@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DASHMIN - Bootstrap Admin Template</title>
+    <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css">
+     <!-- Sweet Alert -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css" />
+</head>
+
+<body>
+    <div class="container rounded bg-white mt-5 mb-5">
+        <div class="row">
+            <div class="col-md-3 border-right" id="profile_image">
+                    
+            </div>
+            <div class="col-md-5 border-right">
+                <div class="p-3 py-5">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="text-right">Profile Settings</h4>
+                    </div>
+                    <form id="update-form" enctype="multipart/form-data" name="form">
+
+                        <div class="row mt-2">
+                            <div class="col-md-6"><label class="labels">Username</label><input type="text"
+                                    class="form-control" placeholder="first name" value="" name="username"
+                                    id="username"></div>
+                            <div class="col-md-6"><label class="labels">Fullname</label><input type="text"
+                                    class="form-control" value="" placeholder="surname" name="fullName" id="fullname">
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text"
+                                    class="form-control" placeholder="enter phone number" value="" name="phoneNumber"
+                                    id="phone"></div>
+                            <div class="col-md-12"><label class="labels">Email ID</label><input type="text"
+                                    class="form-control" placeholder="enter email id" value="" name="email" id="email">
+                            </div>
+                        </div>
+
+                        <div class="mt-5 text-center">
+                            <input class="btn btn-primary profile-button" type="submit" value="Save Profile">
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="general/profilepage.js"></script>
+<script src="Admin/updateprofile.js"></script>
+<!-- sweet alert -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
+</html>

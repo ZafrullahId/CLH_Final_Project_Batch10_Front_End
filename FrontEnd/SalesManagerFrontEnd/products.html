@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>DASHMIN - Bootstrap Admin Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+    <!-- Libraries Stylesheet -->
+    <link href="../AdminFrontEnd/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="../AdminFrontEnd/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="../AdminFrontEnd/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="../AdminFrontEnd/css/style.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="css/products.css"> -->
+    <!-- sweet alert -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css" />
+
+</head>
+
+<body>
+    <div class="container-xxl position-relative bg-white d-flex p-0">
+        <!-- Spinner Start -->
+        <div id="spinner"
+            class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+
+        <!-- Sidebar Start -->
+        <div class="sidebar pe-4 pb-3">
+            <nav class="navbar bg-light navbar-light">
+                <a href="index.html" class="navbar-brand mx-4 mb-3">
+                    <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>DANSNOM</h3>
+                </a>
+                <div class="d-flex align-items-center ms-4 mb-4">
+                    <div class="position-relative" id="user_profile-image">
+                        <div
+                            class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1">
+                        </div>
+                    </div>
+                    <div class="ms-3">
+                        <h6 class="mb-0" class="admin_name" id="user_name"></h6>
+                        <span id="admin_role" class="user_role" style="text-transform: capitalize !important;"></span>
+                    </div>
+                </div>
+                <div class="navbar-nav w-100">
+                    <a href="dashboard.html" class="nav-item nav-link"><i
+                            class="fa fa-tachometer me-2"></i>Dashboard</a>
+                    <a href="sales.html" class="nav-item nav-link"><i class="fa fa-shopping-cart me-2"></i>Sales</a>
+                    
+                    <a href="orders.html" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Oders</a>
+                    <a href="products.html" class="nav-item nav-link active"><i class="fa fa-chart-bar me-2"></i>Products</a>
+
+                    <a href="managers.html" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Managers</a>
+                    <a href="reviews.html" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Reviews</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                            <i class="far fa-comments me-2" id="chat-alerts">
+                                <!-- <div
+                                    class="bg-success rounded-circle border border-2 border-white position-relative end-0 bottom-0 p-1" style="background-color: red;">
+                                </div> -->
+                            </i>Chats</a>
+                        <div class="dropdown-menu bg-transparent border-0" id="chat">
+                            <!-- <div class="d-flex align-items-center" style="padding-left: 20px;">
+                                <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 30px; height: 30px;">
+                                <a href="expenses.html" class="dropdown-item">Ware House Manager</a>
+                            </div> -->
+                            <!-- <div class="d-flex align-items-center" style="padding-left: 20px;">
+                                <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 30px; height: 30px;">
+                                <a href="expenses.html" class="dropdown-item">Production Manager</a>
+                            </div>
+                            <div class="d-flex align-items-center" style="padding-left: 20px;">
+                                <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 30px; height: 30px;">
+                                <a href="expenses.html" class="dropdown-item">Sales Manager</a>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <!-- Sidebar End -->
+
+
+        <!-- Content Start -->
+        <div class="content">
+            <!-- Navbar Start -->
+            <nav class="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
+                <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
+                    <h2 class="text-primary mb-0"><i class="fa fa-hashtag"></i></h2>
+                </a>
+                <a href="#" class="sidebar-toggler flex-shrink-0">
+                    <i class="fa fa-bars"></i>
+                </a>
+                <form class="d-none d-md-flex ms-4">
+
+                    <input class="form-control border-0" type="search" placeholder="Search">
+                </form>
+                <div class="navbar-nav align-items-center ms-auto">
+                    <div class="flex-row">
+
+                        
+                        <div class="nav-item dropdown">
+
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+
+                                <i class="fa fa-envelope me-lg-2" id="message"></i>
+                                <span class="d-none d-lg-inline-flex">Reviews</span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
+                                <div id="reviews" style="max-height: 420px !important;">
+
+                                </div>
+                                <a href="reviews.html" class="dropdown-item text-center">See All</a>
+                                <hr class="dropdown-divider">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" id="my-profile">
+                            
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
+                            <a href="profile.html" class="dropdown-item">My Profile</a>
+                            <a href="#" class="dropdown-item" onclick="logout()">Log Out</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <!-- Navbar End -->
+
+
+            <!-- Chart Start -->
+            <div class="posted-food">
+                <!-- <h3> -->
+                    <!-- Newly listed food ready for delivery</h3> -->
+            </div>
+            <div class="images">
+
+            </div>
+            <!-- Chart End -->
+
+            <!-- form start -->
+
+            <!-- <style media="screen">
+                @import url('https://fonts.googleapis.com/css?family=Lobster+Two:700|Poppins&display=swap');
+
+                * {
+                    margin: 0;
+                    padding: 0;
+                    box-sizing: border-box;
+                }
+
+                input {
+                    /* background: #048bd9; */
+                    font-family: 'Poppins', sans-serif;
+                }
+
+                .center,
+                .start-btn {
+                    position: absolute;
+                    top: 50%;
+                    left: 47%;
+                    transform: translate(-50%, -50%);
+                }
+
+                .start-btn a {
+                    /* font-size: 22px;
+                    background: white; */
+                    color: #02242b;
+                    /* padding: 15px 18px; */
+                    border-radius: 5px;
+                    text-decoration: none;
+                    text-transform: uppercase;
+                    /* font-weight: 600; */
+                    letter-spacing: 1px;
+
+                }
+
+                .modal-box {
+                    top: 40%;
+                    opacity: 0;
+                    visibility: hidden;
+                    background: white;
+                    height: auto;
+                    width: 480px;
+                    padding: 18px 10px;
+                    border-radius: 5px;
+                    box-shadow: 5px 5px 30px rgba(0, 0, 0, .2);
+                    transition: .5s;
+                }
+
+                .start-btn.show-modal {
+                    opacity: 0;
+                    visibility: hidden;
+                }
+
+                .modal-box.show-modal {
+                    top: 45%;
+                    opacity: 1;
+                    visibility: visible;
+                    transition: .5s;
+                }
+
+                .modal-box .fa-times {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    background: #0569d4;
+                    height: 40px;
+                    width: 40px;
+                    line-height: 40px;
+                    margin: 10px;
+
+                    color: white;
+                    font-size: 18px;
+                    border-radius: 100%;
+                    text-align: center;
+                    cursor: pointer;
+                }
+
+                .update-modal-box {
+                    top: 40%;
+                    opacity: 0;
+                    visibility: hidden;
+                    background: white;
+                    height: auto;
+                    width: 480px;
+                    padding: 18px 10px;
+                    border-radius: 5px;
+                    box-shadow: 5px 5px 30px rgba(0, 0, 0, .2);
+                    transition: .5s;
+                }
+
+                .start-btn.show-modal {
+                    opacity: 0;
+                    visibility: hidden;
+                }
+
+                .update-modal-box.show-modal {
+                    top: 45%;
+                    opacity: 1;
+                    visibility: visible;
+                    transition: .5s;
+                }
+
+                .update-modal-box .update-fa-times {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    background: #0569d4;
+                    height: 40px;
+                    width: 40px;
+                    line-height: 40px;
+                    margin: 10px;
+
+                    color: white;
+                    font-size: 18px;
+                    border-radius: 100%;
+                    text-align: center;
+                    cursor: pointer;
+                }
+
+                .fa-times:hover {
+                    font-size: 22px;
+                }
+
+                .update-fa-times:hover {
+                    font-size: 22px;
+                }
+
+
+                .form_container {
+                    background: #fff;
+                    padding: 30px;
+                    margin-top: 25px;
+                    border-radius: 3px;
+                }
+
+                .form_container .form_item {
+                    margin-bottom: 25px;
+                }
+
+                .form_container .form_wrap.form_grp {
+                    display: flex;
+                }
+
+                .form_container .form_wrap.form_grp .form_item {
+                    width: 50%;
+                }
+
+                .form_container .form_wrap.form_grp .form_item:first-child {
+                    margin-right: 4%;
+                }
+
+                .form_container .form_item label {
+                    display: block;
+                    margin-bottom: 5px;
+                }
+
+                .form_container .form_item input,
+                .form_container .form_item select {
+                    width: 100%;
+                    padding: 10px;
+                    font-size: 16px;
+                    border: 1px solid #dadce0;
+                    border-radius: 3px;
+                }
+
+                .form_container .btn input[type="submit"] {
+                    background: #6271f0;
+                    border: 1px solid #6271f0;
+                    padding: 10px;
+                    width: 100%;
+                    border-radius: 3px;
+                    cursor: pointer;
+                    color: #fff;
+                }
+            </style> -->
+
+
+            <!-- <div class="center modal-box">
+
+                <div class="fas fa-times"></div>
+
+
+
+                <div class="form_container">
+                    <form name="form" class="" id="add-form" enctype="multipart/form-data">
+                        <div class="form_wrap form_grp">
+                            <div class="form_item">
+                                <label>Product Name</label>
+                                <input type="text" name="name" required class="form-control">
+
+                            </div>
+                            <div class="form_item">
+                                <label>Price</label>
+                                <div style="display: flex;">
+                                    <span class="input-group-text" id="basic-addon1" style="border-radius: 5px 0px 0px 5px;">₦</span>
+                                    <input type="number" name="price" min="0" required style="border-top-left-radius: 0px;border-bottom-left-radius: 0px;" class="form-control">
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="form_wrap">
+                            <div class="form_item">
+                                <label>Description</label>
+                                <input type="text" name="description" required class="form-control">
+
+                            </div>
+                        </div>
+                        <div class="form_wrap form_grp">
+                            <div class="form_item">
+                                <label>Product Image</label>
+                                <input type="file" name="imageUrl" required class="form-control">
+
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <input type="submit" value="Add Product">
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="center update-modal-box">
+
+                <div class="fas update-fa-times">&times;</div>
+
+
+
+                <div class="form_container">
+                    <form name="form" class="" id="update-form" enctype="multipart/form-data">
+                        <div class="form_wrap form_grp">
+                            <div class="form_item">
+                                <label>Product Name</label>
+                                <input type="text" name="name" id="Name" required class="form-control">
+
+                            </div>
+                            <div class="form_item">
+                                <label>Price</label>
+                                <div style="display: flex;">
+                                    <span class="input-group-text" id="basic-addon1" style="border-radius: 5px 0px 0px 5px;">₦</span>
+                                    <input type="number" name="price" min="0" id="Price" required class="form-control"  style="border-top-left-radius: 0px;border-bottom-left-radius: 0px;">
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="form_wrap">
+                            <div class="form_item">
+                                <label>Description</label>
+                                <input type="text" name="description" id="Description" required class="form-control">
+
+                            </div>
+                        </div>
+                        <div class="form_wrap form_grp">
+                            <div class="form_item">
+                                <label>Product Image</label>
+                                <input type="file" name="imageUrl" id="ImageUrl" class="form-control">
+
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <input type="submit" value="Update Product">
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+            <script>
+                $(document).ready(function () {
+                    $('.start-btn').click(function () {
+                        $('.modal-box').toggleClass("show-modal");
+                        $('.start-btn').toggleClass("show-modal");
+                    });
+                    $('.fa-times').click(function () {
+                        $('.modal-box').toggleClass("show-modal");
+                        $('.start-btn').toggleClass("show-modal");
+                    });
+                });
+                $(document).ready(function () {
+                    // $('.start-btn').click(function () {
+                    //     $('.update-modal-box').toggleClass("show-modal");
+                    //     $('.start-btn').toggleClass("show-modal");
+                    // });
+                    $('.update-fa-times').click(function () {
+                        $('.update-modal-box').toggleClass("show-modal");
+                        $('.start-btn').toggleClass("show-modal");
+                        localStorage.removeItem('productId')
+                    });
+                });
+            </script> -->
+
+            <!-- form end -->
+
+            <!-- Footer Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="bg-light rounded-top p-4">
+                    <div class="row">
+                        <div class="col-12 col-sm-6 text-center text-sm-start">
+                            &copy; <a href="#">Your Site Name</a>, All Right Reserved.
+                        </div>
+                        <div class="col-12 col-sm-6 text-center text-sm-end">
+                            <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                            Designed By <a href="https://htmlcodex.com">HTML Codex</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer End -->
+        </div>
+        <!-- Content End -->
+
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../AdminFrontEnd/lib/chart/chart.min.js"></script>
+    <script src="../AdminFrontEnd/lib/easing/easing.min.js"></script>
+    <script src="../AdminFrontEnd/lib/waypoints/waypoints.min.js"></script>
+    <script src="../AdminFrontEnd/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="../AdminFrontEnd/lib/tempusdominus/js/moment.min.js"></script>
+    <script src="../AdminFrontEnd/lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="../AdminFrontEnd/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    <!-- sweet alert -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
+
+
+    <!-- Template Javascript -->
+    <script src="../AdminFrontEnd/js/main.js"></script>
+    <script src="../AdminFrontEnd/Admin/sidebar.js"></script>
+    <script src="js/product.js"></script>
+    <script src="../AdminFrontEnd/Admin/Reviews.js"></script>
+    <script src="../AdminFrontEnd/general/logout.js"></script>
+    <script src="../AdminFrontEnd/general/profile.js"></script>
+    <!-- <script src="../AdminFrontEnd/Admin/addProduct.js"></script> -->
+    <!-- <script src="../AdminFrontEnd/Admin/updateProduct.js"></script> -->
+</body>
+
+</html>
