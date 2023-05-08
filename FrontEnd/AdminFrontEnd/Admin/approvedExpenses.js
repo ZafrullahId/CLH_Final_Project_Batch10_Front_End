@@ -71,7 +71,7 @@ let displayRequest = (id) => {
 }
 async function displayNotificationMessage() {
 
-    let notification = await fetch('https://localhost:5001/api/RawMaterial/GetAllAprovedRawMaterial')
+    let notification = await fetch('https://localhost:5001/api/RawMaterial/GetAllApprovedRawMaterial')
     return notification.json();
 
 }

@@ -7,8 +7,8 @@ let search_Input = document.querySelector('#look-for')
 let TABLEBODYTEMPLATE = ` <tr>
 <td>{{COUNT}}</td>
 <td>{{PRODUCT-NAME}}</td>
-<td>{{PRODUCT-PRICE}}</td>
-<td>{{AMOUNT-EARNED}}</td>
+<td>₦{{PRODUCT-PRICE}}</td>
+<td>₦{{AMOUNT-EARNED}}</td>
 <td>{{QUANTITY-BOUGHT}}</td>
 <td><input type="submit" class="btn btn-primary" value="Details" style="font-size: 12px;" id="{{ID}}" onclick="displayDetailsforProduct({{PRODUCT-ID}})"></td>
 </tr>`
@@ -24,11 +24,11 @@ let DETAILEDTABLEBODYTEMPLATE = ` <tr>
     </div>
 </td>
 <td>{{QUANTITY}}</td>
-<td>{{AMOUNT-PAIED}}</td>
+<td>₦{{AMOUNT-PAIED}}</td>
 <td>{{PHONE}}</td>
 <td style="white-space: normal">{{ORDERED-DATE}}</td>
 <td style="white-space: normal">{{DELIVERED-DATE}}</td>
-<td><input type="submit" class="btn btn-primary" value="Address Details" style="font-size: 12px;" id="{{ID}}" onclick="displayAddressForOrder({{ADRESS-ID}})"></td>
+<td><input type="submit" class="btn btn-primary" value="Address Details" style="font-size: 12px;white-space: normal;" id="{{ID}}" onclick="displayAddressForOrder({{ADRESS-ID}})"></td>
 </tr>`
  
 let SALESTABLEHEADTEMPLATE = `
@@ -83,7 +83,7 @@ let displayDetailsforProduct = (id) => {
         events()
         let matchestodisplay = document.getElementById(`${id}`)
         // window.alert(matchestodisplay.id)
-        colexp.children[0].innerHTML = `<input type="submit" name="" id="" value="Colaps" style="padding: 0px 7px 0px 7px;" onclick="reload()">`
+        colexp.children[0].innerHTML = `<input type="submit" name="" id="" value="Colaps" style="padding: 0px 7px 0px 7px;" onclick="getAllSales()">`
         // console.log(colexp)
         fetchdata(matchestodisplay.id)
         table_body.innerHTML = ""
@@ -147,7 +147,7 @@ function displayMatches(){
                 <td>${x.customerDto.phoneNumber}</td>
                 <td style="white-space: normal">${x.orderedDate}</td>
                 <td style="white-space: normal">${x.deleveredDate}</td>
-                <td><input type="submit" class="btn btn-primary" value="Address Details" style="font-size: 12px;" id="${x.productDto.productId}" onclick="displayAddressForOrder(${x.addressId})"></td>
+                <td><input type="submit" class="btn btn-primary" value="Address Details" style="font-size: 12px;white-space: normal;" id="${x.productDto.productId}" onclick="displayAddressForOrder(${x.addressId})"></td>
                 </tr>`
             }).join('')
             // if(searchInput.value == '')

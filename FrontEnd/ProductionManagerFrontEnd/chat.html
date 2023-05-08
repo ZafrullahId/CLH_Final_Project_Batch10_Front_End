@@ -21,14 +21,14 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
   <!-- Libraries Stylesheet -->
-  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-  <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+  <link href="../AdminFrontEnd/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="../AdminFrontEnd/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
 
   <!-- Customized Bootstrap Stylesheet -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="../AdminFrontEnd/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Template Stylesheet -->
-  <link href="css/style.css" rel="stylesheet">
+  <link href="../AdminFrontEnd/css/style.css" rel="stylesheet">
 
   <!-- Sweet Alert -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css" />
@@ -36,13 +36,12 @@
   <!-- Chat Templates stylesheet -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
   <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato'>
-  <link rel="stylesheet" href="css/chat.css">
+  <link rel="stylesheet" href="../AdminFrontEnd/css/chat.css">
   <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
   <link rel="stylesheet" href="../SalesManagerFrontEnd/css/emoji.css">
-
 </head>
 
-<body>
+<body style="height: 100vh !important;">
   <div class="container-xxl position-relative bg-white d-flex p-0">
     <!-- Spinner Start -->
     <div id="spinner"
@@ -71,27 +70,34 @@
           </div>
         </div>
         <div class="navbar-nav w-100">
-          <a href="index.html" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
-          <a href="sales.html" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Sales</a>
-          <div class="nav-item dropdown">
-            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
-                class="fa fa-laptop me-2"></i>Expenses</a>
-            <div class="dropdown-menu bg-transparent border-0">
-              <a href="expenses.html" class="dropdown-item">All Expenses</a>
-              <a href="approvedExpenses.html" class="dropdown-item">Approved</a>
-              <a href="pendingExpenses.html" class="dropdown-item">Pending</a>
-            </div>
-          </div>
-          <a href="production.html" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Productions</a>
-          <a href="product.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Products</a>
+          <a href="dashboard.html" class="nav-item nav-link"><i class="fa fa-tachometer me-2"></i>Dashboard</a>
+          <a href="request.html" class="nav-item nav-link"><i class="fa fa-shopping-cart me-2"></i>Request</a>
+          <a href="production.html" class="nav-item nav-link"><i class="fa fa-shopping-cart me-2"></i>Productions</a>
+
+          <a href="products.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Products</a>
 
           <a href="managers.html" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Managers</a>
           <a href="reviews.html" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Reviews</a>
           <div class="nav-item dropdown">
-            <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown"><i
-                class="far fa-comments me-2" id="chat-alerts"></i>Chats</a>
+            <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">
+              <i class="far fa-comments me-2" id="chat-alerts">
+                <!-- <div
+                              class="bg-success rounded-circle border border-2 border-white position-relative end-0 bottom-0 p-1" style="background-color: red;">
+                          </div> -->
+              </i>Chats</a>
             <div class="dropdown-menu bg-transparent border-0" id="chat">
-
+              <!-- <div class="d-flex align-items-center" style="padding-left: 20px;">
+                          <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 30px; height: 30px;">
+                          <a href="expenses.html" class="dropdown-item">Ware House Manager</a>
+                      </div> -->
+              <!-- <div class="d-flex align-items-center" style="padding-left: 20px;">
+                          <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 30px; height: 30px;">
+                          <a href="expenses.html" class="dropdown-item">Production Manager</a>
+                      </div>
+                      <div class="d-flex align-items-center" style="padding-left: 20px;">
+                          <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 30px; height: 30px;">
+                          <a href="expenses.html" class="dropdown-item">Sales Manager</a>
+                      </div> -->
             </div>
           </div>
         </div>
@@ -140,7 +146,7 @@
             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" id="my-profile">
             </a>
             <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-              <a href="profile.html" class="dropdown-item">My Profile</a>
+              <a href="../AdminFrontEnd/profile.html" class="dropdown-item">My Profile</a>
               <a href="#" class="dropdown-item" onclick="logout()">Log Out</a>
             </div>
           </div>
@@ -150,84 +156,15 @@
 
 
 
-      <!-- Button Start -->
+      <!-- chat Start -->
       <div class="container-fluid pt-4 px-4">
-        <div class="row w-100 bg-light rounded align-items-center justify-content-center mx-0" id="test">
+        <div class="row w-100 bg-light rounded align-items-center justify-content-center mx-0">
 
           <div class="--dark-theme" id="chat">
             <div class="chat__conversation-board">
-              <!-- <div class="chat__conversation-board__message-container">
-                <div class="chat__conversation-board__message__person">
-                  <div class="chat__conversation-board__message__person__avatar"><img
-                      src="https://randomuser.me/api/portraits/women/44.jpg" alt="Monika Figi" /></div><span
-                    class="chat__conversation-board__message__person__nickname">Monika Figi</span>
-                </div>
-                <div class="chat__conversation-board__message__context">
-                  <div class="chat__conversation-board__message__bubble">
-                    <span>Somewhere stored deep, deep in my memory banks is the phrase &quot;It really whips the llama's 
-                      ass&quot;.</span>
-                    <br>
-                    <small style="padding-left: 90%;">20:19</small>
-                  </div>
-                </div>
-                <div class="chat__conversation-board__message__options">
-                  <button class="btn-icon chat__conversation-board__message__option-button option-item emoji-button">
-                    <svg class="feather feather-smile sc-dnqmqq jxshSx" xmlns="http://www.w3.org/2000/svg" width="24"
-                      height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                      <circle cx="12" cy="12" r="10"></circle>
-                      <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
-                      <line x1="9" y1="9" x2="9.01" y2="9"></line>
-                      <line x1="15" y1="9" x2="15.01" y2="9"></line>
-                    </svg>
-                  </button>
-                  <button class="btn-icon chat__conversation-board__message__option-button option-item more-button">
-                    <svg class="feather feather-more-horizontal sc-dnqmqq jxshSx" xmlns="http://www.w3.org/2000/svg"
-                      width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                      <circle cx="12" cy="12" r="1"></circle>
-                      <circle cx="19" cy="12" r="1"></circle>
-                      <circle cx="5" cy="12" r="1"></circle>
-                    </svg>
-                  </button>
-                </div>
-              </div> -->
-
-              <!-- <div class="chat__conversation-board__message-container reversed">
-                <div class="chat__conversation-board__message__person">
-                  <div class="chat__conversation-board__message__person__avatar"><img
-                      src="https://randomuser.me/api/portraits/men/9.jpg" alt="Dennis Mikle" /></div><span
-                    class="chat__conversation-board__message__person__nickname">Dennis Mikle</span>
-                </div>
-                <div class="chat__conversation-board__message__context">
-                  <div class="chat__conversation-board__message__bubble"> <span>Winamp's still an essential.</span>
-                  </div>
-                </div>
-                <div class="chat__conversation-board__message__options">
-                  <button class="btn-icon chat__conversation-board__message__option-button option-item emoji-button">
-                    <svg class="feather feather-smile sc-dnqmqq jxshSx" xmlns="http://www.w3.org/2000/svg" width="24"
-                      height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                      <circle cx="12" cy="12" r="10"></circle>
-                      <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
-                      <line x1="9" y1="9" x2="9.01" y2="9"></line>
-                      <line x1="15" y1="9" x2="15.01" y2="9"></line>
-                    </svg>
-                  </button>
-                  <button class="btn-icon chat__conversation-board__message__option-button option-item more-button">
-                    <svg class="feather feather-more-horizontal sc-dnqmqq jxshSx" xmlns="http://www.w3.org/2000/svg"
-                      width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                      <circle cx="12" cy="12" r="1"></circle>
-                      <circle cx="19" cy="12" r="1"></circle>
-                      <circle cx="5" cy="12" r="1"></circle>
-                    </svg>
-                  </button>
-                </div>
-              </div> -->
 
             </div>
-            <div style="transition: 10s;">
+            <div>
               <ul hidden class="emojis bg-light" style="list-style-type: none;" id="style-1">
 
               </ul>
@@ -271,7 +208,7 @@
 
         </div>
       </div>
-      <!-- Button End -->
+      <!-- chat End -->
 
 
       <!-- Footer Start -->
@@ -299,13 +236,13 @@
   <!-- JavaScript Libraries -->
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script> -->
-  <script src="lib/chart/chart.min.js"></script>
-  <script src="lib/easing/easing.min.js"></script>
-  <script src="lib/waypoints/waypoints.min.js"></script>
-  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-  <script src="lib/tempusdominus/js/moment.min.js"></script>
-  <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
-  <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+  <script src="../AdminFrontEnd/lib/chart/chart.min.js"></script>
+  <script src="../AdminFrontEnd/lib/easing/easing.min.js"></script>
+  <script src="../AdminFrontEnd/lib/waypoints/waypoints.min.js"></script>
+  <script src="../AdminFrontEnd/lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="../AdminFrontEnd/lib/tempusdominus/js/moment.min.js"></script>
+  <script src="../AdminFrontEnd/lib/tempusdominus/js/moment-timezone.min.js"></script>
+  <script src="../AdminFrontEnd/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
@@ -315,12 +252,12 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
 
   <!-- Template Javascript -->
-  <script src="js/main.js"></script>
-  <script src="general/profile.js"></script>
-  <script src="general/logout.js"></script>
-  <script src="Admin/chat.js"></script>
-  <script src="Admin/sidebar.js"></script>
-  <script src="Admin/Reviews.js"></script>
+  <script src="../AdminFrontEnd/js/main.js"></script>
+  <script src="../AdminFrontEnd/general/profile.js"></script>
+  <script src="../AdminFrontEnd/general/logout.js"></script>
+  <script src="../AdminFrontEnd/Admin/chat.js"></script>
+  <script src="../AdminFrontEnd/Admin/sidebar.js"></script>
+  <script src="../AdminFrontEnd/Admin/Reviews.js"></script>
 </body>
 
 </html>

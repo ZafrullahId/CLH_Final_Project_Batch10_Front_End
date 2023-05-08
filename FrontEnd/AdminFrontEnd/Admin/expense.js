@@ -26,6 +26,9 @@ let NOTIFICATIONTEMPLATE = `<div class="row single-notification-box unread">
                         <button type="button" class="btn btn-success" id="id{{ID}}" onclick="ApproveRequest({{ID5}})">Approve</button>
                         <button type="button" class="btn btn-danger" id="id{{ID2}}" onclick="Reject({{ID6}})">Reject</button>
                     </div>
+            </div>
+            <div hidden>
+        
             </div>                      
         </div>
 </div>`
@@ -39,23 +42,24 @@ let NOTIFICATIONREQUESTTEMPLATE = `<div class="private-message">
 </ol>
 </div>
 <small style="color: #009CFF;cursor: pointer;"
- onclick="notificationPage()">Colaps</small>`;
+ `;
 
 let displayRequest = (id) => {
     let notification_message = document.querySelector("#id" + id);
     fetch(`https://localhost:5001/api/RawMaterial/GetRawAsync/${id}`)
         .then(res => res.json())
         .then(async function (response) {
-            let col = document.querySelector('#show-message')
-            col.innerText = ""
-            col.addEventListener('click',notificationPage)
+            // let col = document.querySelector('#show-message')
+            // col.innerText = ""
+            // col.addEventListener('click', notificationPage)
             // notification_message.innerHTML = "";
             let nm = NOTIFICATIONREQUESTTEMPLATE
                 .replace('{{RAWMATERIAL-NAME}}', response.data.name)
                 .replace('{{RAWMATERIAL-QUANTITY}}', response.data.quantiityBought)
                 .replace('{{RAWMATERIAL-COST}}', response.data.cost)
                 .replace('{{RAWMATERIAL-ADDITIONAL-MESSAGE}}', response.data.additionalMessage)
-            notification_message.innerHTML += nm;
+            notification_message.lastElementChild.innerHTML = nm;
+            notification_message.lastElementChild.toggleAttribute("hidden")
         })
 }
 async function displayNotificationMessage() {
@@ -66,35 +70,35 @@ async function displayNotificationMessage() {
 }
 
 async function notificationPage() {
-            let request = await displayNotificationMessage();
-            let unread_numbers = request.data.filter(x => x.enumApprovalStatus == 2)
-            unread_notifications_number.innerText = unread_numbers.length
-            notification_box.innerHTML = "";
-            request.data.forEach(x => {
+    let request = await displayNotificationMessage();
+    let unread_numbers = request.data.filter(x => x.enumApprovalStatus == 2)
+    unread_notifications_number.innerText = unread_numbers.length
+    notification_box.innerHTML = "";
+    request.data.forEach(x => {
 
-                // let manager = response.data[0];
-                let n = NOTIFICATIONTEMPLATE
-                    .replace('{{IMAGE}}', x.managerImage)
-                    .replace('{{USER-NAME}}', x.managerName)
-                    .replace('{{ROLE}}', "Ware house manager")
-                    .replace('{{REQUEST-TIME}}', x.postedTime)
-                    .replace('{{ID3}}', x.id)
-                    .replace('{{ID}}', x.id)
-                    .replace('{{ID2}}', x.id)
-                    .replace('{{ID4}}', x.id)
-                    .replace('{{ID6}}', x.id)
-                    .replace('{{ID5}}', x.id)
-                    .replace('{{CREATED-TIME}}', x.createdTime)
-                    .replace('{{APPROVAL-STATUS}}',x.stringApprovalStatus)
+        // let manager = response.data[0];
+        let n = NOTIFICATIONTEMPLATE
+            .replace('{{IMAGE}}', x.managerImage)
+            .replace('{{USER-NAME}}', x.managerName)
+            .replace('{{ROLE}}', "Ware house manager")
+            .replace('{{REQUEST-TIME}}', x.postedTime)
+            .replace('{{ID3}}', x.id)
+            .replace('{{ID}}', x.id)
+            .replace('{{ID2}}', x.id)
+            .replace('{{ID4}}', x.id)
+            .replace('{{ID6}}', x.id)
+            .replace('{{ID5}}', x.id)
+            .replace('{{CREATED-TIME}}', x.createdTime)
+            .replace('{{APPROVAL-STATUS}}', x.stringApprovalStatus)
 
-                notification_box.innerHTML += n
-                let ide = x.id
-                if (x.enumApprovalStatus == 1 || x.enumApprovalStatus == 3) {
-                    document.querySelectorAll("#id" + ide).forEach(x => {
-                        x.disabled = true;
-                    })
-                }
+        notification_box.innerHTML += n
+        let ide = x.id
+        if (x.enumApprovalStatus == 1 || x.enumApprovalStatus == 3) {
+            document.querySelectorAll("#id" + ide).forEach(x => {
+                x.disabled = true;
             })
+        }
+    })
 }
 
 function Reject(id) {
@@ -178,9 +182,11 @@ function findMatches(wordToMatch, expenses) {
 
 function displayMatches() {
     const matchObj = findMatches(this.value, expenses);
-            const html = matchObj.map(x => {
+    const html = matchObj.map(x => {
 
-                let ht =  `<div class="row single-notification-box unread">
+        let ht = `
+
+<div class="row single-notification-box unread">
 <div class="col-1 profile-picture">
         <img class="rounded-circle" src="http://127.0.0.1:5501/wwwroot/Images/${x.managerImage}" alt="profile picture"
         class="img-fluid" style="width: 55px; height: 55px;">
@@ -194,30 +200,31 @@ function displayMatches() {
                     <span class="unread-symbol">•</span>
                 </p>
                 <small style="color: #009CFF;cursor: pointer;"
-                id="show-message" onclick="displayRequest(${x.id})">show</small>
+                id="show-message" onclick="displayRequest(${x.id})">Expand</small>
                 </div>
                 <div style="display: flex;justify-content: space-between;align-items: baseline;">
                 <p class="time">${x.postedTime}</p>
                 <small class="time">${x.createdTime}</small>
-                <div class="status">
-                    <small>${x.stringApprovalStatus}</small>
+                <small class="status">${x.stringApprovalStatus}</small>
                     <div style="display: flex;gap: 10px;">
                         <button type="button" class="btn btn-success" id="id${x.id}" onclick="ApproveRequest(${x.id})">Approve</button>
                         <button type="button" class="btn btn-danger" id="id${x.id}" onclick="Reject(${x.id})">Reject</button>
                     </div>
-                </div>
-            </div>                      
+            </div> 
+            <div hidden>
+        
+            </div>                                      
         </div>
 </div>`
-                return ht
-            }).join('')
-            if (searchInput.value == '') {
-                notificationPage();
-            }
-            else{
-                notification_box.innerHTML = html;
-                disabledbutton();
-            }
+        return ht
+    }).join('')
+    if (searchInput.value == '') {
+        notificationPage();
+    }
+    else {
+        notification_box.innerHTML = html;
+        disabledbutton();
+    }
 }
 const searchInput = document.querySelector('#search');
 searchInput.addEventListener('change', displayMatches);
@@ -227,10 +234,10 @@ searchInput.addEventListener('keyup', displayMatches);
 function disabledbutton() {
     let but = document.querySelectorAll('.status');
     but.forEach(x => {
-        console.log(x.children[0])
-        if (x.children[0].innerText == "Rejected" || x.children[0].innerText == "Approved") {
-            x.children[1].children[0].disabled = true
-            x.children[1].children[1].disabled = true
+        console.log(x.innerText)
+        if (x.innerText == "Rejected" || x.innerText == "Approved") {
+            x.nextElementSibling.children[0].disabled = true
+            x.nextElementSibling.children[1].disabled = true
         }
     })
 }

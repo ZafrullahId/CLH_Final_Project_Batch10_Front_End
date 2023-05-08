@@ -63,31 +63,43 @@
 
                                 <div class="form_wrap form_grp">
                                     <div class="form-floating mb-3 form_item">
-                                        <input type="text" class="form-control" name="username" placeholder="jhondoe" required>
+                                        <input type="text" class="form-control" name="username" placeholder="jhondoe"
+                                            required>
                                         <label for="floatingText">Username</label>
                                     </div>
 
                                     <div class="form-floating mb-3 form_item">
-                                        <input type="text" class="form-control" name="fullName" placeholder="jhondoe" required>
+                                        <input type="text" class="form-control" name="fullName" placeholder="jhondoe"
+                                            required>
                                         <label for="floatingText">Full name</label>
                                     </div>
                                 </div>
-                                <div class="form_wrap form_grp">
-                                    <div class="form-floating mb-3 form_item">
+                                <div class="form_wrap">
+                                    <div class="mb-4 form_item form-floating" style="width: 445px;">
                                         <input type="email" class="form-control" name="email"
                                             placeholder="name@example.com" id="mail" readonly required>
                                         <label for="floatingInput">Email address</label>
                                     </div>
+                                </div>
 
+                                <div class="form_wrap form_grp">
+                                    
                                     <div class="form-floating mb-4 form_item">
                                         <input type="password" class="form-control" name="password"
-                                            placeholder="Password" required>
+                                        placeholder="Password" id="password" required>
                                         <label for="floatingPassword">Password</label>
+                                    </div>
+                                    <div class="form-floating mb-3 form_item">
+                                        <input type="password" class="form-control" name="email"
+                                        placeholder="Confirm Password" id="confirm-password" oninput="checkingForPassword(this.value)" required>
+                                        <small id="error-message" style="color: red;"></small>
+                                        <label for="floatingInput">Confirm Password</label>
                                     </div>
                                 </div>
                                 <div class="form_wrap form_grp">
                                     <div class="form-floating mb-4 form_item">
-                                        <input type="text" class="form-control" name="phoneNumber" placeholder="Phone" required>
+                                        <input type="text" class="form-control" name="phoneNumber" placeholder="Phone"
+                                            required>
                                         <label for="floatingPassword">Phone</label>
                                     </div>
 
@@ -97,7 +109,8 @@
                                     </div>
                                 </div>
                                 <div>
-                                    <input type="submit" value="complete Registration" class="btn btn-primary py-3 w-100 mb-4" style="width: 70vh !important;">
+                                    <input type="submit" value="complete Registration"
+                                        class="btn btn-primary py-3 w-100 mb-4" style="width: 55vh !important;">
                                 </div>
                             </form>
                         </div>

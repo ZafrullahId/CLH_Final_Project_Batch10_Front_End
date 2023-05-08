@@ -32,7 +32,6 @@ function chatAlert() {
         let managers = document.querySelectorAll('.managers')
         managers.forEach(x => {
             x.children[1].classList.remove("bg-success","rounded-circle","border","border-2", "border-white", "position-relative", "end-0", "bottom-0", "p-1")
-            console.log("removing")
         })
         response.data.forEach(x => {
             managers.forEach(c => {
@@ -44,10 +43,11 @@ function chatAlert() {
     })
 }
 // class="bg-success rounded-circle border border-2 border-white position-relative end-0 bottom-0 p-1" style="background-color: red !important;"
-chatAlert()
 
 let getReceiverId = (id) => {
     localStorage.removeItem('senderId')
     localStorage.setItem('senderId',id)
     return id
 }
+setInterval(chatAlert, 5000)
+chatAlert()

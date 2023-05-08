@@ -103,8 +103,13 @@ body {
 .btn-search:focus ~ .filter-group .input-search{
   width: 200px;
   transition: all 500ms ;
+  
 }
 .filter-group .input-search:focus{
   width: 200px;
+}
+.table-filter .filter-group {
+  float: right;
+  margin-left: 8px !important;
 }
       

@@ -22,16 +22,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 
     <!-- Libraries Stylesheet -->
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+    <link href="../AdminFrontEnd/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="../AdminFrontEnd/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="../AdminFrontEnd/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="../AdminFrontEnd/css/style.css" rel="stylesheet">
     <!-- <link rel="stylesheet" href="css/products.css"> -->
     <!-- sweet alert -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css" />
@@ -68,31 +68,38 @@
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="index.html" class="nav-item nav-link"><i
-                            class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
-                    <a href="sales.html" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Sales</a>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
-                                class="fa fa-laptop me-2"></i>Expenses</a>
-                        <div class="dropdown-menu bg-transparent border-0">
-                            <a href="expenses.html" class="dropdown-item">All Expenses</a>
-                            <a href="approvedExpenses.html" class="dropdown-item">Approved</a>
-                            <a href="pendingExpenses.html" class="dropdown-item">Pending</a>
-                        </div>
-                    </div>
-                    <a href="production.html" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Productions</a>
-                    <a href="product.html" class="nav-item nav-link active"><i
-                            class="fa fa-chart-bar me-2"></i>Products</a>
+                    <a href="dashboard.html" class="nav-item nav-link"><i
+                            class="fa fa-tachometer me-2"></i>Dashboard</a>
+                    <a href="request.html" class="nav-item nav-link"><i class="fa fa-shopping-cart me-2"></i>Request</a>
+                    <a href="production.html" class="nav-item nav-link"><i class="fa fa-shopping-cart me-2"></i>Productions</a>
+                    
+                    <a href="products.html" class="nav-item nav-link active"><i class="fa fa-chart-bar me-2"></i>Products</a>
 
                     <a href="managers.html" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Managers</a>
                     <a href="reviews.html" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Reviews</a>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
-                                class="far fa-comments me-2" id="chat-alerts"></i>Chats</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                            <i class="far fa-comments me-2" id="chat-alerts">
+                                <!-- <div
+                                    class="bg-success rounded-circle border border-2 border-white position-relative end-0 bottom-0 p-1" style="background-color: red;">
+                                </div> -->
+                            </i>Chats</a>
                         <div class="dropdown-menu bg-transparent border-0" id="chat">
-
+                            <!-- <div class="d-flex align-items-center" style="padding-left: 20px;">
+                                <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 30px; height: 30px;">
+                                <a href="expenses.html" class="dropdown-item">Ware House Manager</a>
+                            </div> -->
+                            <!-- <div class="d-flex align-items-center" style="padding-left: 20px;">
+                                <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 30px; height: 30px;">
+                                <a href="expenses.html" class="dropdown-item">Production Manager</a>
+                            </div>
+                            <div class="d-flex align-items-center" style="padding-left: 20px;">
+                                <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 30px; height: 30px;">
+                                <a href="expenses.html" class="dropdown-item">Sales Manager</a>
+                            </div> -->
                         </div>
                     </div>
+                </div>
             </nav>
         </div>
         <!-- Sidebar End -->
@@ -113,14 +120,9 @@
                     <input class="form-control border-0" type="search" placeholder="Search">
                 </form>
                 <div class="navbar-nav align-items-center ms-auto">
-                    <div class="btn">
-                        <input type="submit" class="btn btn-primary" value="Add Category" onclick="displayFormaddCategory()">
-                    </div>
                     <div class="flex-row">
 
-                        <div class="start-btn">
-                            <a href="#">Add product</a>
-                        </div>
+                        
                         <div class="nav-item dropdown">
 
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
@@ -137,13 +139,13 @@
                             </div>
                         </div>
                     </div>
-
+                    
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" id="my-profile">
-
+                            
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-                            <a href="profile.html" class="dropdown-item">My Profile</a>
+                            <a href="../AdminFrontEnd/profile.html" class="dropdown-item">My Profile</a>
                             <a href="#" class="dropdown-item" onclick="logout()">Log Out</a>
                         </div>
                     </div>
@@ -154,7 +156,7 @@
 
             <!-- Chart Start -->
             <div class="posted-food">
-                <h3>
+                <!-- <h3> -->
                     <!-- Newly listed food ready for delivery</h3> -->
             </div>
             <div class="images">
@@ -164,7 +166,7 @@
 
             <!-- form start -->
 
-            <style media="screen">
+            <!-- <style media="screen">
                 @import url('https://fonts.googleapis.com/css?family=Lobster+Two:700|Poppins&display=swap');
 
                 * {
@@ -338,10 +340,10 @@
                     cursor: pointer;
                     color: #fff;
                 }
-            </style>
+            </style> -->
 
 
-            <div class="center modal-box">
+            <!-- <div class="center modal-box">
 
                 <div class="fas fa-times"></div>
 
@@ -358,11 +360,8 @@
                             <div class="form_item">
                                 <label>Price</label>
                                 <div style="display: flex;">
-                                    <span class="input-group-text" id="basic-addon1"
-                                        style="border-radius: 5px 0px 0px 5px;">₦</span>
-                                    <input type="number" name="price" min="0" required
-                                        style="border-top-left-radius: 0px;border-bottom-left-radius: 0px;"
-                                        class="form-control">
+                                    <span class="input-group-text" id="basic-addon1" style="border-radius: 5px 0px 0px 5px;">₦</span>
+                                    <input type="number" name="price" min="0" required style="border-top-left-radius: 0px;border-bottom-left-radius: 0px;" class="form-control">
                                 </div>
 
                             </div>
@@ -372,16 +371,6 @@
                                 <label>Description</label>
                                 <input type="text" name="description" required class="form-control">
 
-                            </div>
-                        </div>
-                        <div class="form_wrap">
-                            <div class="form_item">
-                                <label>Category</label>
-                                <select class="form-control" name="categoryName" id="category"
-                                    ondblclick="fetchCategory()" -=>
-                                    <!-- <option value="">Fashion</option>
-                                <option value="">Farm Produce</option> -->
-                                </select>
                             </div>
                         </div>
                         <div class="form_wrap form_grp">
@@ -415,10 +404,8 @@
                             <div class="form_item">
                                 <label>Price</label>
                                 <div style="display: flex;">
-                                    <span class="input-group-text" id="basic-addon1"
-                                        style="border-radius: 5px 0px 0px 5px;">₦</span>
-                                    <input type="number" name="price" min="0" id="Price" required class="form-control"
-                                        style="border-top-left-radius: 0px;border-bottom-left-radius: 0px;">
+                                    <span class="input-group-text" id="basic-addon1" style="border-radius: 5px 0px 0px 5px;">₦</span>
+                                    <input type="number" name="price" min="0" id="Price" required class="form-control"  style="border-top-left-radius: 0px;border-bottom-left-radius: 0px;">
                                 </div>
 
                             </div>
@@ -426,17 +413,8 @@
                         <div class="form_wrap">
                             <div class="form_item">
                                 <label>Description</label>
-                                <input type="text" name="description" id="Description" required class="form-control" >
+                                <input type="text" name="description" id="Description" required class="form-control">
 
-                            </div>
-                        </div>
-                        <div class="form_wrap">
-                            <div class="form_item">
-                                <label>Category</label>
-                                <select class="form-control" name="categoryName" id="update-category"
-                                    ondblclick="fetchupdateCategory()">
-
-                                </select>
                             </div>
                         </div>
                         <div class="form_wrap form_grp">
@@ -446,9 +424,9 @@
 
                             </div>
                         </div>
-                            <div class="btn">
-                                <input type="submit" value="Update Product">
-                            </div>
+                        <div class="btn">
+                            <input type="submit" value="Update Product">
+                        </div>
                     </form>
                 </div>
             </div>
@@ -476,10 +454,10 @@
                         localStorage.removeItem('productId')
                     });
                 });
-            </script>
+            </script> -->
 
             <!-- form end -->
-            
+
             <!-- Footer Start -->
             <div class="container-fluid pt-4 px-4">
                 <div class="bg-light rounded-top p-4">
@@ -506,28 +484,27 @@
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/chart/chart.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/tempusdominus/js/moment.min.js"></script>
-    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
-    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="../AdminFrontEnd/lib/chart/chart.min.js"></script>
+    <script src="../AdminFrontEnd/lib/easing/easing.min.js"></script>
+    <script src="../AdminFrontEnd/lib/waypoints/waypoints.min.js"></script>
+    <script src="../AdminFrontEnd/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="../AdminFrontEnd/lib/tempusdominus/js/moment.min.js"></script>
+    <script src="../AdminFrontEnd/lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="../AdminFrontEnd/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
     <!-- sweet alert -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
-    <script src="https://unpkg.com/vue-swal"></script>
 
 
     <!-- Template Javascript -->
-    <script src="js/main.js"></script>
-    <script src="Admin/sidebar.js"></script>
-    <script src="Admin/product.js"></script>
-    <script src="Admin/Reviews.js"></script>
-    <script src="general/logout.js"></script>
-    <script src="general/profile.js"></script>
-    <script src="Admin/addProduct.js"></script>
-    <script src="Admin/updateProduct.js"></script>
+    <script src="../AdminFrontEnd/js/main.js"></script>
+    <script src="../AdminFrontEnd/Admin/sidebar.js"></script>
+    <script src="../SalesManagerFrontEnd/js/product.js"></script>
+    <script src="../AdminFrontEnd/Admin/Reviews.js"></script>
+    <script src="../AdminFrontEnd/general/logout.js"></script>
+    <script src="../AdminFrontEnd/general/profile.js"></script>
+    <!-- <script src="../AdminFrontEnd/Admin/addProduct.js"></script> -->
+    <!-- <script src="../AdminFrontEnd/Admin/updateProduct.js"></script> -->
 </body>
 
 </html>

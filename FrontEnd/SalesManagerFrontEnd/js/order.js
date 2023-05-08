@@ -173,7 +173,7 @@ let getOrderedProducts = (id) => {
         buttons: {
             cancel: "Cancel",
             catch: {
-                text: "Ok",
+                text: "Mark as Delivered",
             },
         }
     }).then(function (isConfirm) {

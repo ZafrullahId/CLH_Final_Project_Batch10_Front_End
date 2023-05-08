@@ -25,20 +25,23 @@ let MANAGERSTEMPLATE = `<div class="col mb-3 man">
     </div>
 </div>
 </div>`
-function fetchRoles(){
+
+function fetchRoles() {
     fetch('https://localhost:5001/api/Role/GetAllRolesAsync')
-    .then(res => res.json())
-    .then(function(response){
-        role.innerHTML =""
-        response.data.forEach(x => {
-            if (x.name == "customer") {
-                return
-            }
-            role.innerHTML += `<option value="${x.name}">${x.name}</option>`
+        .then(res => res.json())
+        .then(function (response) {
+            role.innerHTML = ""
+            response.data.forEach(x => {
+                if (x.name == "customer") {
+                    return
+                }
+                role.innerHTML += `<option value="${x.name}">${x.name}</option>`
+            })
         })
-    })
 }
 let displayManagers = () => {
+    var rol = localStorage.getItem("Role")
+    console.log(rol)
     admin.innerHTML = ""
     fetch('https://localhost:5001/api/Admin/GetAllAdmins')
         .then(res => res.json())
@@ -55,27 +58,98 @@ let displayManagers = () => {
                 admin.innerHTML += manager
 
             });
+            if (rol != "admin") {
+                // window.alert("hi")
+                let r = document.querySelectorAll(".card-footer")
+                r.forEach(x => {
+                    console.log(x.children[0])
+                    x.children[0].setAttribute("hidden", "")
+                    x.children[1].setAttribute("hidden", "")
+                })
+            }
         })
 }
 
+let displayFormaddRole = () => {
+    let form = document.createElement("div")
+    form.innerHTML = `<div class="">
+    <form action="" id="add-category">
+        <div class="form_wrap">
+            <div class="form_item">
+                <input type="text" name="name" id="roleName" required class="form-control" placeholder="Role Name">
+            </div>
+        </div>
+        </br>
+        <div class="form_wrap">
+            <div class="form_item">
+                <input type="text" name="description" id="roleDescription" required class="form-control" placeholder="Role Description">
+  
+            </div>
+        </div>
+    </form>
+  </div>`
+    swal({
+        title: 'Add Role',
+        text: null,
+        showCancelButton: true,
+        closeOnConfirm: false,
+        content: form,
+        buttons: {
+            cancel: "Cancel",
+            catch: {
+                text: "Submit",
+            },
+        }
+    }).then(function (isConfirm){
+        let name = document.querySelector('#roleName')
+        let description = document.querySelector('#roleDescription')
+        if (isConfirm) {
+            let values = {
+                Name: name.value,
+                Description: description.value
+              }
+              const options = {
+                method: 'POST',
+                body: JSON.stringify(values),
+                headers: {
+                  'Content-Type': 'application/json'
+                }
+              }
+              fetch(`https://localhost:5001/api/Role/Create`,options)
+              .then((res) => {
+                console.log(res);
+                return res.json();
+            })
+            .then(function (value) {
+                console.log(value.success);
+                if (value.success == true) {
+                    swal("Success", `${value.message}`, "success");
+                }
+                else {
+                    swal("Opps!", `${value.message}`, "warning");
+                }
+    
+            })
+            .catch((res) => {
+                window.alert("UnAuthorized")
+            })
+        }
+    })
+}
 
 function removeManager(id) {
-    swal(
+    Swal.fire(
 
         {
-            title: "Are you sure?",
-            text: "Once deleted, Manager will no have access to the system",
-            type: "warning",
-            allowEscapeKey: false,
-            allowOutsideClick: false,
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
             showCancelButton: true,
-            confirmButtonColor: "#DD6B55",
-            confirmButtonText: "Yes",
-            // showLoaderOnConfirm: true,
-            closeOnConfirm: false
-        },
-
-        function (isConfirm) {
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        })
+        .then((result) => {
             const options = {
                 method: 'DELETE',
                 body: null,
@@ -83,26 +157,22 @@ function removeManager(id) {
                     'Content-Type': 'application/json'
                 }
             }
-
-            if (isConfirm) {
+            if (result.isConfirmed) {
                 fetch(`https://localhost:5001/api/Admin/Delete/${id}`, options)
                     .then(res => res.json())
                     .then(function (response) {
                         if (response.success == true) {
-                            swal("Manger Deleted", "Manger has been deleted and can no longer have access to the system", "success");
+                            Swal.fire("Manger Deleted", "Manger has been deleted and can no longer have access to the system", "success");
                             displayManagers()
-
                         }
                         else {
-                            swal("Opps!", `${response.message}`, "warning");
+                            Swal.fire("Opps!", `${response.message}`, "warning");
                         }
 
                     });
             }
-
-        }
-
-    );
+          })
+    
 }
 displayManagers()
 fetchRoles()

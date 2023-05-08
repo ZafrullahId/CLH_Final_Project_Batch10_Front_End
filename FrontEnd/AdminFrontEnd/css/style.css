@@ -423,3 +423,6 @@
     transition: 1s;
     cursor: pointer;
 }
+.is-open{
+    transform: translateY(0);
+}

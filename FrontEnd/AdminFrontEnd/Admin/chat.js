@@ -43,7 +43,7 @@ let CHATTEMPLATE =
 function showOrClose() {
   emojis.toggleAttribute("hidden")
   emojis.style.height = "300px"
-  emojis.style.width = "260px"
+  // emojis.style.width = "260px"
   // emojis.style.transition = "2s"
 }
 
@@ -79,14 +79,19 @@ function chatPage() {
           .replace('{{SENT-TIME}}', x.postedTime)
           .replace('{{SenderId}}', x.senderId)
         conversation.innerHTML += chat
-        if (x.senderId == id) {
-          var element = document.querySelectorAll(`#id${x.senderId}`);
+        // if (x.senderId == id) {
+        //   var element = document.querySelectorAll(`#id${x.senderId}`);
+        //   element.forEach(x => {
+        //     x.classList.add("reversed");
+        //     x.children[1].children[0].style.background = "#00BFFF"
+        //   })
+        // }
+      });
+      var element = document.querySelectorAll(`#id${id}`);
           element.forEach(x => {
             x.classList.add("reversed");
             x.children[1].children[0].style.background = "#00BFFF"
           })
-        }
-      });
     })
 }
 
@@ -153,6 +158,7 @@ fetch(jsonUrl)
     })
   })
 
+setInterval(chatPage, 5000);
 
 chatPage()
 markAllAsRead()

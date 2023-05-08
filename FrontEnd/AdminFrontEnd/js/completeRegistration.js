@@ -1,6 +1,14 @@
-let myemail = location.href.split('=')[1]
-let email = document.getElementById('mail')
-email.value = myemail
+// let confirmpassword = document.querySelector('#confirm-password')
+let password = document.querySelector('#password')
+let error = document.querySelector('#error-message')
+
+let mailInput = document.querySelector('#mail')
+let token = location.href.split('=')[1]
+fetch(`https://localhost:5001/api/User/GetUserByToken?token=${token}`)
+    .then(res => res.json())
+    .then(function (response) {
+        mailInput.value = response.data.email
+    })
 
 const myform = document.querySelector('#complete-registration-form');
 myform.addEventListener('submit', (x) => {
@@ -13,7 +21,7 @@ myform.addEventListener('submit', (x) => {
         {
             method: "POST",
             body: sendForm,
-            
+
         })
         .then((res) => {
             console.log(res);
@@ -35,3 +43,12 @@ myform.addEventListener('submit', (x) => {
         })
 
 })
+
+let checkingForPassword = (confirmpassword) => {
+    if (confirmpassword != password.value) {
+        error.innerText = "Password not match"
+    }
+    else {
+        error.innerText = ""
+    }
+}

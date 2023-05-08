@@ -162,16 +162,14 @@
 
           <div class="--dark-theme" id="chat">
             <div class="chat__conversation-board">
-
+       
             </div>
-
-            <div>
-              <ul hidden class="emojis" style="list-style-type: none;">
-
+            <div >
+              <ul hidden class="emojis bg-light" style="list-style-type: none;" id="style-1">
 
               </ul>
             </div>
-            
+
             <div class="chat__conversation-panel">
               <div class="chat__conversation-panel__container">
                 <button class="chat__conversation-panel__button panel-item btn-icon add-file-button">
@@ -194,9 +192,9 @@
                   </svg>
                 </button>
                 <input class="chat__conversation-panel__input panel-item" id="input-message"
-                  placeholder="Type a message..." onkeyup="disablesendbutton(this.value)" />
+                  placeholder="Type a message..." />
                 <button class="chat__conversation-panel__button panel-item btn-icon send-message-button"
-                  onclick="SendAMessage()" disabled>
+                  onclick="SendAMessage()">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                     aria-hidden="true" data-reactid="1036">

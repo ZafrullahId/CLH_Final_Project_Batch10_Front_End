@@ -2,7 +2,7 @@ let notification_box = document.querySelector("#notify");
 let unread_notifications_number = document.querySelector(".unread-notifications-number");
 
 
-let NOTIFICATIONTEMPLATE = `<div class="row single-notification-box unread" id="id{{IDD}}">
+let NOTIFICATIONTEMPLATE = `<div class="row single-notification-box unread">
 <div class="col-1 profile-picture">
         <img class="rounded-circle" src="http://127.0.0.1:5501/wwwroot/Images/{{IMAGE}}" alt="profile picture"
         class="img-fluid" style="width: 55px; height: 55px;">
@@ -26,7 +26,10 @@ let NOTIFICATIONTEMPLATE = `<div class="row single-notification-box unread" id="
                         <button type="button" class="btn btn-success" id="id{{ID}}" onclick="ApproveRequest({{ID5}})">Approve</button>
                         <button type="button" class="btn btn-danger" id="id{{ID2}}" onclick="Reject({{ID6}})">Reject</button>
                     </div>
-            </div>                      
+            </div> 
+            <div hidden>
+        
+            </div>                                
         </div>
 </div>`
 
@@ -50,7 +53,8 @@ let displayRequest = (id) => {
                 .replace('{{RAWMATERIAL-QUANTITY}}', response.data.quantiityBought)
                 .replace('{{RAWMATERIAL-COST}}', response.data.cost)
                 .replace('{{RAWMATERIAL-ADDITIONAL-MESSAGE}}', response.data.additionalMessage)
-            notification_message.innerHTML += nm;
+                notification_message.lastElementChild.innerHTML = nm;
+                notification_message.lastElementChild.toggleAttribute("hidden")
         })
 }
 async function displayNotificationMessages() {
@@ -84,7 +88,7 @@ async function npendingExpPage() {
                 .replace('{{ID4}}', x.id)
                 .replace('{{ID6}}', x.id)
                 .replace('{{ID5}}', x.id)
-                .replace('{{IDD}}', x.id)
+                // .replace('{{IDD}}', x.id)
                 .replace('{{CREATED-TIME}}', x.createdTime)
                 .replace('{{APPROVAL-STATUS}}', x.stringApprovalStatus)
 
@@ -210,7 +214,10 @@ function displayMatches() {
                         <button type="button" class="btn btn-danger" id="id${x.id}" onclick="Reject(${x.id})">Reject</button>
                     </div>
                 </div>
-            </div>                      
+            </div>   
+            <div hidden>
+        
+            </div>                             
         </div>
 </div>`
         return ht

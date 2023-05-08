@@ -19,16 +19,36 @@
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Libraries Stylesheet -->
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+    <link href="../AdminFrontEnd/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="../AdminFrontEnd/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="../AdminFrontEnd/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="../AdminFrontEnd/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="../AdminFrontEnd/css/review.css">
+    <style>
+        .thumb {
+            font-size: 20px;
+            cursor: pointer;
+            user-select: none;
+            color: rgb(219, 212, 201);
+            justify-self: center;
+        }
+
+        .thumb:hover {
+            /* color: darkblue; */
+        }
+
+        .liked {
+            color: darkblue;
+            transition: 1s;
+        }
+    </style>
 </head>
 
 <body>
@@ -61,30 +81,39 @@
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="index.html" class="nav-item nav-link"><i
-                            class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
-                    <a href="sales.html" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Sales</a>
+                    <a href="dashboard.html" class="nav-item nav-link"><i
+                            class="fa fa-tachometer me-2"></i>Dashboard</a>
+                    <a href="request.html" class="nav-item nav-link"><i
+                            class="fa fa-shopping-cart me-2"></i>Request</a>
+                    <a href="rawmaterial.html" class="nav-item nav-link"><i class="fa fa-shopping-cart me-2"></i>Raw
+                        Materails</a>
+
+                    <a href="products.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Products</a>
+
+                    <a href="managers.html" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Managers</a>
+                    <a href="reviews.html" class="nav-item nav-link active"><i class="fa fa-table me-2"></i>Reviews</a>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
-                                class="fa fa-laptop me-2"></i>Expenses</a>
-                        <div class="dropdown-menu bg-transparent border-0">
-                            <a href="expenses.html" class="dropdown-item">All Expenses</a>
-                            <a href="approvedExpenses.html" class="dropdown-item">Approved</a>
-                            <a href="pendingExpenses.html" class="dropdown-item">Pending</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                            <i class="far fa-comments me-2" id="chat-alerts">
+                                <!-- <div
+                                    class="bg-success rounded-circle border border-2 border-white position-relative end-0 bottom-0 p-1" style="background-color: red;">
+                                </div> -->
+                            </i>Chats</a>
+                        <div class="dropdown-menu bg-transparent border-0" id="chat">
+                            <!-- <div class="d-flex align-items-center" style="padding-left: 20px;">
+                                <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 30px; height: 30px;">
+                                <a href="expenses.html" class="dropdown-item">Ware House Manager</a>
+                            </div> -->
+                            <!-- <div class="d-flex align-items-center" style="padding-left: 20px;">
+                                <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 30px; height: 30px;">
+                                <a href="expenses.html" class="dropdown-item">Production Manager</a>
+                            </div>
+                            <div class="d-flex align-items-center" style="padding-left: 20px;">
+                                <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 30px; height: 30px;">
+                                <a href="expenses.html" class="dropdown-item">Sales Manager</a>
+                            </div> -->
                         </div>
                     </div>
-                    <a href="production.html" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Productions</a>
-                    <a href="product.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Products</a>
-                    
-                    <a href="managers.html" class="nav-item nav-link"><i class="fa fa-table me-2 active"></i>Managers</a>
-                    <a href="reviews.html" class="nav-item nav-link"><i class="fa fa-table me-2 active"></i>Reviews</a>
-                    <a href="reviews.html" class="nav-item nav-link active"><i class="fa fa-bell me-2"></i>Notifications</a>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
-                                class="far fa-comments me-2" id="chat-alerts"></i>Chats</a>
-                        <div class="dropdown-menu bg-transparent border-0" id="chat">
-                            
-                        </div>
                 </div>
             </nav>
         </div>
@@ -106,10 +135,10 @@
                     <input class="form-control border-0" type="search" placeholder="Search">
                 </form>
                 <div class="navbar-nav align-items-center ms-auto">
-                        <a href="#" class="nav-link" id="notification-alert" data-bs-toggle="dropdown">
-                            <i class="fa fa-bell me-lg-2"></i>
-                            <span class="d-none d-lg-inline-flex">Notification</span>
-                        </a>
+                    <a href="#" class="nav-link" id="notification-alert" data-bs-toggle="dropdown">
+                        <i class="fa fa-bell me-lg-2"></i>
+                        <span class="d-none d-lg-inline-flex">Notification</span>
+                    </a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" id="my-profile">
                         </a>
@@ -117,7 +146,6 @@
                             <a href="profile.html" class="dropdown-item">My Profile</a>
                             <a href="#" class="dropdown-item" onclick="logout()">Log Out</a>
                         </div>
-                        
                     </div>
                 </div>
             </nav>
@@ -129,15 +157,14 @@
                 <div class="row bg-light rounded align-items-start justify-start-center mx-0"
                     style="padding-top: 20px !important;">
                     <div class="col-md-6" style="box-sizing: border-box !important;">
-                        <div id="unread">
+                        <!-- <div id="unread">
                             <p style="text-align: center;width: 900px;"><span id="unread-measage-count"></span> Unread
                                 Messages</p>
-                        </div>
+                        </div> -->
                         <br>
-                        <div class="flex-column" id="full-review">
-
+                        <div id="full-review">
+                            
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -170,19 +197,20 @@
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/chart/chart.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/tempusdominus/js/moment.min.js"></script>
-    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
-    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="../AdminFrontEnd/lib/chart/chart.min.js"></script>
+    <script src="../AdminFrontEnd/lib/easing/easing.min.js"></script>
+    <script src="../AdminFrontEnd/lib/waypoints/waypoints.min.js"></script>
+    <script src="../AdminFrontEnd/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="../AdminFrontEnd/lib/tempusdominus/js/moment.min.js"></script>
+    <script src="../AdminFrontEnd/lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="../AdminFrontEnd/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
     <!-- Template Javascript -->
-    <script src="js/main.js"></script>
-    <script src="general/profile.js"></script>
-    <script src="general/logout.js"></script>
-    <script src="Admin/sidebar.js"></script>
+    <script src="../AdminFrontEnd/js/main.js"></script>
+    <script src="../AdminFrontEnd/general/profile.js"></script>
+    <script src="../AdminFrontEnd/Admin/fullReviews.js"></script>
+    <script src="../AdminFrontEnd/Admin/sidebar.js"></script>
+    <script src="../AdminFrontEnd/general/logout.js"></script>
 </body>
 
 </html>

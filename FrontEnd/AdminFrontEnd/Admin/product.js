@@ -131,16 +131,16 @@ let remove = (id) => {
     buttons: true,
     dangerMode: true,
   })
-  .then((willDelete) => {
-    if (willDelete) {
-      const options = {
-              method: 'DELETE',
-              body: null,
-              headers: {
-                'Content-Type': 'application/json'
-              }
-            }
-      fetch(`https://localhost:5001/api/Product/Delete/${id}`, options)
+    .then((willDelete) => {
+      if (willDelete) {
+        const options = {
+          method: 'DELETE',
+          body: null,
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }
+        fetch(`https://localhost:5001/api/Product/Delete/${id}`, options)
           .then(res => res.json())
           .then(function (response) {
 
@@ -156,8 +156,8 @@ let remove = (id) => {
               });
             }
           });
-        }
-  });
+      }
+    });
   // swal(
   //   {
   //     title: "Are you sure?",

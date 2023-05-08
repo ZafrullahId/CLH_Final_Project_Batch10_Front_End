@@ -21,16 +21,16 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+    <link href="../AdminFrontEnd/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="../AdminFrontEnd/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="../AdminFrontEnd/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="../AdminFrontEnd/css/style.css" rel="stylesheet">
 
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
 
@@ -42,11 +42,11 @@
     <!-- <link rel="stylesheet" href="./table-06/css/style.css"> -->
 
     <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="dist/yearpicker.css">
+    <link rel="stylesheet" href="../AdminFrontEnd/dist/yearpicker.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
-    <script src="dist/yearpicker.js"></script>
+    <script src="../AdminFrontEnd/dist/yearpicker.js"></script>
 
 </head>
 
@@ -80,20 +80,12 @@
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="index.html" class="nav-item nav-link active"><i
+                    <a href="dashboard.html" class="nav-item nav-link active"><i
                             class="fa fa-tachometer me-2"></i>Dashboard</a>
-                    <a href="sales.html" class="nav-item nav-link"><i class="fa fa-shopping-cart me-2"></i>Sales</a>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
-                                class="fa fa-laptop me-2"></i>Expenses</a>
-                        <div class="dropdown-menu bg-transparent border-0">
-                            <a href="expenses.html" class="dropdown-item">All Expenses</a>
-                            <a href="approvedExpenses.html" class="dropdown-item">Approved</a>
-                            <a href="pendingExpenses.html" class="dropdown-item">Pending</a>
-                        </div>
-                    </div>
-                    <a href="production.html" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Productions</a>
-                    <a href="product.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Products</a>
+                    <a href="request.html" class="nav-item nav-link"><i class="fa fa-shopping-cart me-2"></i>Request</a>
+                    <a href="production.html" class="nav-item nav-link"><i class="fa fa-shopping-cart me-2"></i>Productions</a>
+
+                    <a href="products.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Products</a>
 
                     <a href="managers.html" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Managers</a>
                     <a href="reviews.html" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Reviews</a>
@@ -117,7 +109,6 @@
                                 <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 30px; height: 30px;">
                                 <a href="expenses.html" class="dropdown-item">Sales Manager</a>
                             </div> -->
-
                         </div>
                     </div>
                 </div>
@@ -191,7 +182,7 @@
                             <span class="d-none d-lg-inline-flex">John Doe</span> -->
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-                            <a href="profile.html" class="dropdown-item">My Profile</a>
+                            <a href="../AdminFrontEnd/profile.html" class="dropdown-item">My Profile</a>
                             <a href="#" class="dropdown-item" onclick="logout()">Log Out</a>
                         </div>
                     </div>
@@ -235,7 +226,6 @@
                                 <p class="mb-2">This month Exp</p>
                                 <h6 class="mb-0" id="cost"
                                     style="text-align: center; font-family: Heebo,sans-serif; font-size: 1rem; font-weight: 400; color: #757575;background-color: #F3F6F9">
-
                                 </h6>
                                 <select name="" id="expmonths" oninput="displayCostForSelectedMonth()">
                                     <option value="" id="present-month" hidden></option>
@@ -321,6 +311,7 @@
             </div>
             <!-- Sales Chart End -->
 
+
             <!-- Recent Sales Start -->
             <div class="container-fluid pt-4 px-4">
                 <div class="bg-light text-center rounded p-4">
@@ -376,7 +367,7 @@
                                     <th scope="col">Image</th>
                                     <th scope="col">Price</th>
                                     <th scope="col">Quantity</th>
-                                    <th scope="col">Net Amount</th>
+                                    <th scope="col">Amount</th>
                                     <th scope="col">Action</th>
 
                                 </tr>
@@ -424,27 +415,26 @@
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/chart/chart.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/tempusdominus/js/moment.min.js"></script>
-    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
-    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="../AdminFrontEnd/lib/chart/chart.min.js"></script>
+    <script src="../AdminFrontEnd/lib/easing/easing.min.js"></script>
+    <script src="../AdminFrontEnd/lib/waypoints/waypoints.min.js"></script>
+    <script src="../AdminFrontEnd/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="../AdminFrontEnd/lib/tempusdominus/js/moment.min.js"></script>
+    <script src="../AdminFrontEnd/lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="../AdminFrontEnd/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
     <script src="https://unpkg.com/vue-swal"></script>
 
 
     <!-- Template Javascript -->
-    <script src="js/main.js"></script>
-    <script src="Admin/Reviews.js"></script>
-    <script src="Admin/Calculation.js"></script>
-    <script src="general/logout.js"></script>
-    <script src="general/signin.js"></script>
-    <script src="general/profile.js"></script>
-    <script src="Admin/notficationAlert.js"></script>
-    <script src="Admin/sidebar.js"></script>
+    <script src="../AdminFrontEnd/js/main.js"></script>
+    <script src="../AdminFrontEnd/Admin/Reviews.js"></script>
+    <script src="../AdminFrontEnd/Admin/Calculation.js"></script>
+    <script src="../AdminFrontEnd/general/logout.js"></script>
+    <script src="../AdminFrontEnd/general/signin.js"></script>
+    <script src="../AdminFrontEnd/general/profile.js"></script>
+    <script src="../AdminFrontEnd/Admin/sidebar.js"></script>
 </body>
 
 </html>

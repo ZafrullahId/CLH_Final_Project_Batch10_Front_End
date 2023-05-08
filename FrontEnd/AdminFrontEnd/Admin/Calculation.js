@@ -147,7 +147,7 @@ displayCostForThePresentmonth = () => {
     fetch('https://localhost:5001/api/RawMaterial/CalculateCostOfRawMaterialsForTheMonth')
         .then(res => res.json())
         .then(function (response) {
-            if (response.data.cost == 0) {
+            if (response.data == null) {
                 present_month_cost.innerText = "₦" + "0.00"
             }
             else {
@@ -215,7 +215,7 @@ let SALESTABLETEMPLATE = `<tr class="alert" role="alert">
 <td style="text-align: center;">
 <div class="email">
 <div class="img" style="text-align: center !important;">
-<img src="http://127.0.0.1:5501/wwwroot/Images/{{CUSTOMER-IMAGE}}" alt="" style="width: 65px; height: 65px;" class="rounded-circle"></div>
+<img src="http://127.0.0.1:5501/wwwroot/Images/{{CUSTOMER-IMAGE}}" alt="" style="width: 55px; height: 55px;" class="rounded-circle"></div>
 <span style="font-size: 13px;">{{CUSTOMER-NAME}}</span>
 </div>
 </td>

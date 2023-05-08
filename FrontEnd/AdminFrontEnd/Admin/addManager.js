@@ -6,7 +6,6 @@ myform.addEventListener('submit', (x) => {
     // let Token = localStorage.getItem("token");
     // console.log(Token);
     let sendForm = new FormData(myform);
-    window.alert(sendForm.get("role"));
     fetch(`https://localhost:5001/api/Admin/RegisterAdmin`,
         {
             method: "POST",

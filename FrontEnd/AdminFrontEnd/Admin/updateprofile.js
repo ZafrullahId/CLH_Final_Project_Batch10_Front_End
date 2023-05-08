@@ -22,7 +22,8 @@ myform.addEventListener('submit', (x) => {
         .then(function (value) {
             console.log(value.success);
             if (value.success == true) {
-                swal("Success", `${value.message}`, "success");
+                swal("Success", `${value.message}`, "success")
+                // location.href = "./index.html"
                 viewProfile();
             }
             else {

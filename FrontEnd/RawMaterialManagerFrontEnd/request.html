@@ -18,27 +18,28 @@
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
 
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"></script>
+
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="../AdminFrontEnd/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Sweet alert -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css" />
+    
+
 
     <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
-
-    <!-- Sweet Alert -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css" />
-
-    <!-- Notification Templates stylesheet -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/notification.css">
-
-    <!-- pop up -->
-    <link rel="stylesheet" href="css/popup.css">
+    <link href="../AdminFrontEnd/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="../AdminFrontEnd/css/notification.css">
 </head>
 
 <body>
@@ -71,29 +72,38 @@
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="index.html" class="nav-item nav-link"><i
-                            class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
-                    <a href="sales.html" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Sales</a>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown"><i
-                                class="fa fa-laptop me-2"></i>Expenses</a>
-                        <div class="dropdown-menu bg-transparent border-0">
-                            <a href="expenses.html" class="dropdown-item">All Expenses</a>
-                            <a href="approvedExpenses.html" class="dropdown-item active">Approved</a>
-                            <a href="pendingExpenses.html" class="dropdown-item">Pending</a>
-                        </div>
-                    </div>
-                    <a href="form.html" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Productions</a>
-                    <a href="product.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Products</a>
+                    <a href="dashboard.html" class="nav-item nav-link"><i
+                            class="fa fa-tachometer me-2"></i>Dashboard</a>
+                    <a href="request.html" class="nav-item nav-link active"><i class="fa fa-shopping-cart me-2"></i>Request</a>
+                    <a href="rawmaterial.html" class="nav-item nav-link"><i class="fa fa-shopping-cart me-2"></i>Raw Materails</a>
+                    
+                    <a href="products.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Products</a>
+
                     <a href="managers.html" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Managers</a>
                     <a href="reviews.html" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Reviews</a>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
-                                class="far fa-comments me-2" id="chat-alerts"></i>Chats</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                            <i class="far fa-comments me-2" id="chat-alerts">
+                                <!-- <div
+                                    class="bg-success rounded-circle border border-2 border-white position-relative end-0 bottom-0 p-1" style="background-color: red;">
+                                </div> -->
+                            </i>Chats</a>
                         <div class="dropdown-menu bg-transparent border-0" id="chat">
-
+                            <!-- <div class="d-flex align-items-center" style="padding-left: 20px;">
+                                <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 30px; height: 30px;">
+                                <a href="expenses.html" class="dropdown-item">Ware House Manager</a>
+                            </div> -->
+                            <!-- <div class="d-flex align-items-center" style="padding-left: 20px;">
+                                <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 30px; height: 30px;">
+                                <a href="expenses.html" class="dropdown-item">Production Manager</a>
+                            </div>
+                            <div class="d-flex align-items-center" style="padding-left: 20px;">
+                                <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 30px; height: 30px;">
+                                <a href="expenses.html" class="dropdown-item">Sales Manager</a>
+                            </div> -->
                         </div>
                     </div>
+                </div>
             </nav>
         </div>
         <!-- Sidebar End -->
@@ -114,6 +124,9 @@
                     <input class="form-control border-0" type="search" placeholder="Search">
                 </form>
                 <div class="navbar-nav align-items-center ms-auto">
+                    <!-- <div class="start-btn">
+                        <input type="submit" class="btn btn-primary" value="Add Manager">
+                    </div> -->
                     <div class="nav-item dropdown">
 
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
@@ -130,19 +143,13 @@
                         </div>
                     </div>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link" id="notification-alert" data-bs-toggle="dropdown">
-                            <i class="fa fa-bell me-lg-2"></i>
-                            <span class="d-none d-lg-inline-flex">Notification</span>
-                        </a>
-                    </div>
-                    <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" id="my-profile">
                             <!-- <img class="rounded-circle me-lg-2" src="img/user.jpg" alt=""
                                 style="width: 40px; height: 40px;">
                             <span class="d-none d-lg-inline-flex">John Doe</span> -->
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-                            <a href="profile.html" class="dropdown-item">My Profile</a>
+                            <a href="../AdminFrontEnd/profile.html" class="dropdown-item">My Profile</a>
                             <a href="#" class="dropdown-item" onclick="logout()">Log Out</a>
                         </div>
                     </div>
@@ -151,11 +158,14 @@
             <!-- Navbar End -->
 
 
-
-            <!-- Button Start -->
+            <!-- Blank Start -->
             <div class="container-fluid pt-4 px-4">
-                <div class="row bg-light rounded align-items-center justify-content-center mx-0">
-
+                <div class="row bg-light rounded align-items-start justify-start-center mx-0"
+                    style="padding-top: 20px !important;">
+                    <div class="d-flex justify-content-between">
+                        <input type="submit" name="" id="" class="btn btn-primary" value="Request" onclick="requestForm()" style="font-size: small;">
+                        <input type="submit" name="" id="button-request" class="btn btn-success" value="My Request" onclick="toggleInnerHtml(this.id)" style="font-size: small;">
+                    </div>
                     <style>
                         .attribution {
                             font-size: 11px;
@@ -167,7 +177,7 @@
                         }
                     </style>
 
-                    <div class="container notifications-container shadow">
+                    <div class="container notifications-container">
                         <div class="row header">
                             <div class="col-3">
                                 <p class="title">
@@ -179,22 +189,24 @@
                                 <input type="search" name="" id="search" class="form-control">
                             </div>
                             <div class="col-3 mark-as-read text-end">
-                                <a href="#" id="markAllAsRead" class="mark-as-read-button align-middle">Mark all as
-                                    read</a>
+                                <!-- <a href="#" id="markAllAsRead" class="mark-as-read-button align-middle">Mark all as
+                                    read</a> -->
                             </div>
                         </div>
                         <div class="row notifications">
                             <div class="col-12" id="notify">
 
+                              
+
+                               
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
-            <!-- Button End -->
+            <!-- Blank End -->
 
-           
+
             <!-- Footer Start -->
             <div class="container-fluid pt-4 px-4">
                 <div class="bg-light rounded-top p-4">
@@ -203,6 +215,7 @@
                             &copy; <a href="#">Your Site Name</a>, All Right Reserved.
                         </div>
                         <div class="col-12 col-sm-6 text-center text-sm-end">
+                            <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
                             Designed By <a href="https://htmlcodex.com">HTML Codex</a>
                         </div>
                     </div>
@@ -212,77 +225,32 @@
         </div>
         <!-- Content End -->
 
-
         <!-- Back to Top -->
         <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
 
-     <!-- Pup up Start -->
-
-     <div id="popup1" class="overlay">
-        <div class="popup bg-light">
-            <!-- <h2>Here i am</h2> -->
-            <a class="close" href="#">&times;</a>
-            <br>
-            <div class="pop-content">
-                <!-- <h2>Responsive Tables Using LI <small>Triggers on 767px</small></h2> -->
-                <div class="">
-                    <ul class="responsive-table">
-                        <li class="table-header">
-                            <div class="col col-1">S/N</div>
-                            <div class="col col-2">Product</div>
-                            <div class="col col-1">Price</div>
-                            <div class="col col-2">Production Date</div>
-                            <div class="col col-3">Quantity Requested</div>
-                            <div class="col col-3">Quantity Produced</div>
-                            <div class="col col-3">Quantity Remaining</div>
-                        </li>
-                        <div class="table-row">
-
-                        </div>
-                        <!-- <li class="table-row">
-                            <div class="col col" data-label="S/N" style="padding-right: 45px;">1</div>
-                            <div class="col col-2" data-label="Product">John Doe</div>
-                            <div class="col col-4" data-label="Price" style="max-width: 100px !important;">$350</div>
-                            <div class="col col-1" data-label="Production Date" style="padding-right: 85px;padding-left: 65px;">17 March 2020</div>
-                            <div class="col col-3" data-label="Quantity Requested" style="padding-right: 85px;padding-left: 95px;">10</div>
-                            <div class="col col-3" data-label="Quantity Produced" style="padding-right: 75px;padding-left: 95px;">20</div>
-                            <div class="col col-3" data-label="Quantity Remaining" style="padding-right: 85px;padding-left: 90px;">10</div>
-                        </li> -->
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Pup up End -->
-
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script> -->
-    <script src="lib/chart/chart.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/tempusdominus/js/moment.min.js"></script>
-    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
-    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../AdminFrontEnd/lib/chart/chart.min.js"></script>
+    <script src="../AdminFrontEnd/lib/easing/easing.min.js"></script>
+    <script src="../AdminFrontEnd/lib/waypoints/waypoints.min.js"></script>
+    <script src="../AdminFrontEnd/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="../AdminFrontEnd/lib/tempusdominus/js/moment.min.js"></script>
+    <script src="../AdminFrontEnd/lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="../AdminFrontEnd/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://unpkg.com/vue-swal"></script>
     <!-- Template Javascript -->
-    <script src="Admin/unread.js"></script>
-    <script src="js/main.js"></script>
-    <script src="Admin/approvedExpenses.js"></script>
-    <script src="Admin/Reviews.js"></script>
-    <script src="general/profile.js"></script>
-    <script src="general/logout.js"></script>
-    <script src="Admin/sidebar.js"></script>
+    <script src="../AdminFrontEnd/js/main.js"></script>
+    <script src="../AdminFrontEnd/general/profile.js"></script>
+    <script src="../AdminFrontEnd/general/logout.js"></script>
+    <script src="../AdminFrontEnd/Admin/managers.js"></script>
+    <script src="../AdminFrontEnd/Admin/Reviews.js"></script>
+    <script src="../AdminFrontEnd/Admin/sidebar.js"></script>
+    <script src="./js/request.js"></script>
 </body>
 
 </html>

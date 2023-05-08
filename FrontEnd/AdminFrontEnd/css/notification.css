@@ -244,3 +244,12 @@ p {
     /* border: 1px solid red;  */
     text-align: center;
 }
+.unread:hover {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+  transition: 1s;
+}
+.private-message{
+  font-family: "Times New Roman", Times, serif;
+  height: fit-content;
+  transition: 2s !important;
+}
