@@ -6,7 +6,7 @@ let TEMPLATEFULLREVIEW = `<figure class="snip1157">
 <blockquote id="id{{ID}}">{{POST-CONTENT}}
     <div class="arrow"></div>
 </blockquote>
-<img src="http://127.0.0.1:5501/wwwroot/Images/{{CUSTOMER-IMAGE}}"
+<img src="http://127.0.0.1:5502/wwwroot/Images/{{CUSTOMER-IMAGE}}"
     alt="sq-sample3" />
 <div class="author">
     <h5>{{SENDER-NAME}}</br><span>{{POSTED-TIME}}</span></h5>

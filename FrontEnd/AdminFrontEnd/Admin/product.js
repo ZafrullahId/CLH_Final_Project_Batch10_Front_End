@@ -16,9 +16,10 @@ const PRODUCTTEMPLATE = `<div class="post-image">
                         </div>
                     </div>
 </div>
-<img src="http://127.0.0.1:5501/wwwroot/Images/{{PRODUCT-IMAGE}}" alt="">
+<img src="http://127.0.0.1:5502/wwwroot/Images/{{PRODUCT-IMAGE}}" alt="">
 <h6>{{PRODUCT-TYPE}}</h6>
 <p>{{PRODUCT-DESCRIPTION}}</p>
+<p>{{CATEGORY}}</p>
 <p>x{{PRODUCT-QUANTITY}}</p>
 <p>&#8358;{{PRODUCT-PRICE}}</p>
 </div>`;
@@ -234,6 +235,7 @@ let displayProduct = () => {
           .replace('{{PRODUCT-TYPE}}', x.name)
           .replace('{{PRODUCT-QUANTITY}}', x.quantityRemaining)
           .replace('{{PRODUCT-DESCRIPTION}}', x.description)
+          .replace('{{CATEGORY}}', x.categoryName)
           .replace('{{PRODUCT-PRICE}}', x.price)
           .replace('{{PRODUCT-ID}}', x.productId)
           .replace('{{ID}}', x.productId)

@@ -5,7 +5,7 @@ let MANAGERSTEMPLATE = `<div class="col mb-3 man">
 <div class="card">
     <img src="https://www.bootdey.com/image/340x120/FFB6C1/000000" alt="Cover" class="card-img-top">
     <div class="card-body text-center">
-        <img src="http://127.0.0.1:5501/wwwroot/Images/{{IMAGE}}"
+        <img src="http://127.0.0.1:5502/wwwroot/Images/{{IMAGE}}"
             style="width:100px;margin-top:-65px" alt="User"
             class="img-fluid img-thumbnail rounded-circle border-0 mb-3">
         <h5 class="card-title">{{FULL-NAME}}</h5>
@@ -100,79 +100,120 @@ let displayFormaddRole = () => {
                 text: "Submit",
             },
         }
-    }).then(function (isConfirm){
+    }).then(function (isConfirm) {
         let name = document.querySelector('#roleName')
         let description = document.querySelector('#roleDescription')
         if (isConfirm) {
             let values = {
                 Name: name.value,
                 Description: description.value
-              }
-              const options = {
+            }
+            const options = {
                 method: 'POST',
                 body: JSON.stringify(values),
                 headers: {
-                  'Content-Type': 'application/json'
+                    'Content-Type': 'application/json'
                 }
-              }
-              fetch(`https://localhost:5001/api/Role/Create`,options)
-              .then((res) => {
-                console.log(res);
-                return res.json();
-            })
-            .then(function (value) {
-                console.log(value.success);
-                if (value.success == true) {
-                    swal("Success", `${value.message}`, "success");
-                }
-                else {
-                    swal("Opps!", `${value.message}`, "warning");
-                }
-    
-            })
-            .catch((res) => {
-                window.alert("UnAuthorized")
-            })
+            }
+            fetch(`https://localhost:5001/api/Role/Create`, options)
+                .then((res) => {
+                    console.log(res);
+                    return res.json();
+                })
+                .then(function (value) {
+                    console.log(value.success);
+                    if (value.success == true) {
+                        swal("Success", `${value.message}`, "success");
+                    }
+                    else {
+                        swal("Opps!", `${value.message}`, "warning");
+                    }
+
+                })
+                .catch((res) => {
+                    window.alert("UnAuthorized")
+                })
         }
     })
 }
 
 function removeManager(id) {
-    Swal.fire(
+    let loginId = localStorage.getItem("Id")
+    if (loginId == id) {
+        Swal.fire(
 
-        {
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
-        })
-        .then((result) => {
-            const options = {
-                method: 'DELETE',
-                body: null,
-                headers: {
-                    'Content-Type': 'application/json'
+            {
+                title: 'Are you sure?',
+                text: "This is your profile. Once deleted you would be logged out and won't have access to your account!!!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            })
+            .then((result) => {
+                const options = {
+                    method: 'DELETE',
+                    body: null,
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
                 }
-            }
-            if (result.isConfirmed) {
-                fetch(`https://localhost:5001/api/Admin/Delete/${id}`, options)
-                    .then(res => res.json())
-                    .then(function (response) {
-                        if (response.success == true) {
-                            Swal.fire("Manger Deleted", "Manger has been deleted and can no longer have access to the system", "success");
-                            displayManagers()
-                        }
-                        else {
-                            Swal.fire("Opps!", `${response.message}`, "warning");
-                        }
+                if (result.isConfirmed) {
+                    fetch(`https://localhost:5001/api/Admin/Delete/${id}`, options)
+                        .then(res => res.json())
+                        .then(function (response) {
+                            if (response.success == true) {
+                                Swal.fire("Manger Deleted", "Manger has been deleted and can no longer have access to the system", "success");
+                                
+                                location.href = "http://127.0.0.1:5501/FrontEnd/AdminFrontEnd/signin.html"
+                            }
+                            else {
+                                Swal.fire("Opps!", `${response.message}`, "warning");
+                            }
 
-                    });
-            }
-          })
-    
+                        });
+                }
+            })
+    }
+    else {
+
+        Swal.fire(
+
+            {
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            })
+            .then((result) => {
+                const options = {
+                    method: 'DELETE',
+                    body: null,
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }
+                if (result.isConfirmed) {
+                    fetch(`https://localhost:5001/api/Admin/Delete/${id}`, options)
+                        .then(res => res.json())
+                        .then(function (response) {
+                            if (response.success == true) {
+                                Swal.fire("Manger Deleted", "Manger has been deleted and can no longer have access to the system", "success");
+                                displayManagers()
+                            }
+                            else {
+                                Swal.fire("Opps!", `${response.message}`, "warning");
+                            }
+
+                        });
+                }
+            })
+    }
+
 }
 displayManagers()
 fetchRoles()

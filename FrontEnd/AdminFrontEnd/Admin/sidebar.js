@@ -1,7 +1,7 @@
 let chatProfiles = document.querySelector('#chat')
 let chatalert = document.querySelector('#chat-alerts')
 let WHOTOCHATTEMPLATE = ` <div class="d-flex align-items-center managers" style="padding-left: 20px;" id="{{MANAGER-ID}}">
-<img class="rounded-circle" src="http://127.0.0.1:5501/wwwroot/Images/{{PROFILE-IMAGE}}" alt="" style="width: 30px; height: 30px;">
+<img class="rounded-circle" src="http://127.0.0.1:5502/wwwroot/Images/{{PROFILE-IMAGE}}" alt="" style="width: 30px; height: 30px;">
 <div style="background-color: red !important;margin-left: -6px;margin-top: auto;">
 
 </div>

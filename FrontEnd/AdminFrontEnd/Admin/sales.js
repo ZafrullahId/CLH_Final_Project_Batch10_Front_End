@@ -18,7 +18,7 @@ let DETAILEDTABLEBODYTEMPLATE = ` <tr>
 <td style="text-align: center;">
     <div class="email">
         <div class="img" style="text-align: center !important;">
-            <img src="http://127.0.0.1:5501/wwwroot/Images/{{CUSTOMER-IMAGE}}" alt="" style="width: 50px; height: 50px;" class="rounded-circle">
+            <img src="http://127.0.0.1:5502/wwwroot/Images/{{CUSTOMER-IMAGE}}" alt="" style="width: 50px; height: 50px;" class="rounded-circle">
         </div>
         <span style="font-size: 11px;">{{CUSTOMER-NAME}}</span>
     </div>
@@ -137,7 +137,7 @@ function displayMatches(){
                 <td style="text-align: center;">
                     <div class="email">
                         <div class="img" style="text-align: center !important;">
-                            <img src="http://127.0.0.1:5501/wwwroot/Images/${x.customerDto.imageUrl}" alt="" style="width: 50px; height: 50px;" class="rounded-circle">
+                            <img src="http://127.0.0.1:5502/wwwroot/Images/${x.customerDto.imageUrl}" alt="" style="width: 50px; height: 50px;" class="rounded-circle">
                         </div>
                         <span style="font-size: 11px;">${x.customerDto.fullName}</span>
                     </div>

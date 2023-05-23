@@ -3,7 +3,7 @@ let number_of_unread_notifications = document.querySelector('.unread-notificatio
 let showmyrequest = true
 let NOTIFICATIONTEMPLATE = `<div class="row single-notification-box unread">
 <div class="col-1 profile-picture">
-    <img class="rounded-circle" src="http://127.0.0.1:5501/wwwroot/Images/{{IMAGE}}"
+    <img class="rounded-circle" src="http://127.0.0.1:5502/wwwroot/Images/{{IMAGE}}"
         alt="profile picture" class="img-fluid" style="width: 55px; height: 55px;">
 </div>
 <div class="col-11 notification-text" >
@@ -37,8 +37,9 @@ let NOTIFICATIONTEMPLATE = `<div class="row single-notification-box unread">
 
 let REQUEST = `<div class="private-message" hidden id="ids{{ID}}">
 <ol type="A">
+<li>PRODUCT NAME: {{NAME}}</li>
 <li>QUANTITY REQUESTED: {{PRODUCTION-QUANTITY-REQUEST}} turns</li>
-<li>PRODUCTION QUANTITY: {{PRODUCTION-QUANTITY}}</li>
+<li>PRODUCTION QUANTITY: {{PRODUCTION-QUANTITY}} bags</li>
 <h6 style="font-size: 14px !important;font-weight: 20 !important;">RAWMATERIALS REQUESTED</h6>
 <div id="dis{{ID}}">
 <ul>
@@ -81,6 +82,7 @@ async function displayRequest(id) {
         .then(res => res.json())
         .then(function (response) {
             let request = REQUEST
+                .replace('{{NAME}}', response.data.productDto.name)
                 .replace('{{PRODUCTION-QUANTITY-REQUEST}}', response.data.quantityRequest)
                 .replace('{{PRODUCTION-QUANTITY}}', response.data.quantityProduced)
                 .replace('{{PRODUCTION-REQUEST-ADDITIONAL-MESSAGE}}', response.data.additionalMessage)
@@ -156,9 +158,10 @@ function requestForm() {
     }).then(function (isConfirm) {
         if (isConfirm == "catch") {
             const id = localStorage.getItem("Id")
+            let addinfo = document.getElementById("additionalMessage")
             const request_form = document.querySelector('#request-form')
             let sendForm = new FormData(request_form)
-            console.log(sendForm.get("name"))
+            sendForm.set("additionalMessage", addinfo.value) 
             fetch(`https://localhost:5001/api/RawMaterial/CreateRawMaterial/${id}`,
                 {
                     method: "POST",
@@ -215,7 +218,7 @@ let ApproveRequest = (id) => {
         })
 }
 let Reject = (id) => {
-    
+
     Swal.fire({
         title: "An input!",
         text: "Give a reason to the Manager",
@@ -277,7 +280,7 @@ function displayMatches() {
 
         let ht = `<div class="row single-notification-box unread">
                 <div class="col-1 profile-picture">
-                    <img class="rounded-circle" src="http://127.0.0.1:5501/wwwroot/Images/${x.admin.image}"
+                    <img class="rounded-circle" src="http://127.0.0.1:5502/wwwroot/Images/${x.admin.image}"
                         alt="profile picture" class="img-fluid" style="width: 55px; height: 55px;">
                 </div>
                 <div class="col-11 notification-text" >
@@ -324,7 +327,7 @@ displayNotification()
 
 let MYREQUESTTEMPLATE = `<div class="row single-notification-box unread">
 <div class="col-1 profile-picture">
-    <img class="rounded-circle" src="http://127.0.0.1:5501/wwwroot/Images/{{IMAGE}}"
+    <img class="rounded-circle" src="http://127.0.0.1:5502/wwwroot/Images/{{IMAGE}}"
         alt="profile picture" class="img-fluid" style="width: 55px; height: 55px;">
 </div>
 <div class="col-11 notification-text" >

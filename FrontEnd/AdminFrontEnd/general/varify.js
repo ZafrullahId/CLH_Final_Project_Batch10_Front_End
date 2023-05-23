@@ -65,9 +65,9 @@ let verify = () => {
   let code4 = document.querySelector('#code4');
   let code5 = document.querySelector('#code5');
   let code = `${code1.value}${code2.value}${code3.value}${code4.value}${code5.value}`
-   console.log(code1.value);
+  console.log(code1.value);
 
-  fetch(`https://localhost:5001/api/Customer/VerifyCode/${code}/${id}`)
+  fetch(`https://localhost:5001/api/VerificationCode/VerifyCode/${code}/${id}`)
     .then(res => res.json())
     .then(function (value) {
       if (value.success == false) {
@@ -79,3 +79,38 @@ let verify = () => {
     })
 
 }
+
+let resendCode = () => {
+  const options = {
+    method: 'PUT',
+    body: null,
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }
+    fetch(`https://localhost:5001/api/VerificationCode/UpdateCode/${id}`, options)
+    .then(res => res.json())
+        .then(function (response) {
+            if (response.success == true) {
+                window.alert(response.message)
+                codeTimer()
+            }
+            else if (response.success == false) {
+                console.log(response.message)
+            }
+        })
+}
+
+function codeTimer() {
+  var timeleft = 200;
+  var downloadTimer = setInterval(function () {
+    if (timeleft <= 0) {
+      clearInterval(downloadTimer);
+      document.getElementById("countdown").innerHTML = `<small><a href="" style="text-decoration: none;" onclick="resendCode()">resend code</a></small>`;
+    } else {
+      document.getElementById("countdown").innerHTML = `<small><a href="" style="text-decoration: none;" >${timeleft} seconds remaining</a></small>`;
+    }
+    timeleft -= 1;
+  }, 1000);
+}
+codeTimer()

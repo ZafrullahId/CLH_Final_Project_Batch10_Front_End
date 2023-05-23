@@ -3,7 +3,7 @@ let message = document.querySelector('#message');
 
 let TEMPLATE = `<a href="#" class="dropdown-item">
 <div class="d-flex align-items-center" >
-    <img class="rounded-circle" src="http://127.0.0.1:5501/wwwroot/Images/{{CUSTOMER-IMAGE}}" alt="" style="width: 40px; height: 40px;">
+    <img class="rounded-circle" src="http://127.0.0.1:5502/wwwroot/Images/{{CUSTOMER-IMAGE}}" alt="" style="width: 40px; height: 40px;">
     <div class="ms-2" >
         <h6 class="fw-normal mb-0" style="font-size: .775em;">{{SENDER-NAME}}</h6>       
         <small id="text" class="post-content">{{POST-CONTENT}}</small>

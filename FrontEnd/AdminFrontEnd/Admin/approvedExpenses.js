@@ -5,7 +5,7 @@ let unread_notifications_number = document.querySelector(".unread-notifications-
 
 let NOTIFICATIONTEMPLATE = `<div class="row single-notification-box unread">
 <div class="col-1 profile-picture">
-        <img class="rounded-circle" src="http://127.0.0.1:5501/wwwroot/Images/{{IMAGE}}" alt="profile picture"
+        <img class="rounded-circle" src="http://127.0.0.1:5502/wwwroot/Images/{{IMAGE}}" alt="profile picture"
         class="img-fluid" style="width: 55px; height: 55px;">
 </div>
         <div class="col-11 notification-text" id="id{{ID4}}">
@@ -214,7 +214,7 @@ function displayMatches() {
 
         let ht = `<div class="row single-notification-box unread">
 <div class="col-1 profile-picture">
-        <img class="rounded-circle" src="http://127.0.0.1:5501/wwwroot/Images/${x.managerImage}" alt="profile picture"
+        <img class="rounded-circle" src="http://127.0.0.1:5502/wwwroot/Images/${x.managerImage}" alt="profile picture"
         class="img-fluid" style="width: 55px; height: 55px;">
 </div>
         <div class="col-11 notification-text" id="id${x.id}">

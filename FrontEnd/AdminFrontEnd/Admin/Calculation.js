@@ -176,7 +176,7 @@ displayCostForSelectedMonth = () => {
 let TABLETEMPLATE = `<tr>
 <td>{{COUNT}}</td>
 <td>{{PRODUCT}}</td>
-<td><img src="http://127.0.0.1:5501/wwwroot/Images/{{IMAGE}}" alt="" style="width: 40px; height: 40px;"></td>
+<td><img src="http://127.0.0.1:5502/wwwroot/Images/{{IMAGE}}" alt="" style="width: 40px; height: 40px;"></td>
 <td id="id{{ID}}">&#8358; {{PRICE}}</td>
 <td>{{QUANTITY}}</td>
 <td>₦{{AMOUNT}}</td>
@@ -215,7 +215,7 @@ let SALESTABLETEMPLATE = `<tr class="alert" role="alert">
 <td style="text-align: center;">
 <div class="email">
 <div class="img" style="text-align: center !important;">
-<img src="http://127.0.0.1:5501/wwwroot/Images/{{CUSTOMER-IMAGE}}" alt="" style="width: 55px; height: 55px;" class="rounded-circle"></div>
+<img src="http://127.0.0.1:5502/wwwroot/Images/{{CUSTOMER-IMAGE}}" alt="" style="width: 55px; height: 55px;" class="rounded-circle"></div>
 <span style="font-size: 13px;">{{CUSTOMER-NAME}}</span>
 </div>
 </td>

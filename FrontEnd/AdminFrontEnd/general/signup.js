@@ -1,4 +1,7 @@
 // window.alert("welcome");
+let password = document.querySelector('#password')
+let error = document.querySelector('#error-message')
+
 let code = "";
 const myform = document.querySelector('#sign-up-form');
 myform.addEventListener('submit', (x) => {
@@ -35,3 +38,12 @@ myform.addEventListener('submit', (x) => {
         })
 
 })
+
+let checkingForPassword = (confirmpassword) => {
+    if (confirmpassword != password.value) {
+        error.innerText = "Password not match"
+    }
+    else {
+        error.innerText = ""
+    }
+}

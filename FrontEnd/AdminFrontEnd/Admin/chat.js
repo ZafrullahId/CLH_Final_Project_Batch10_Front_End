@@ -7,7 +7,7 @@ let CHATTEMPLATE =
   `<div class="chat__conversation-board__message-container" id="id{{SenderId}}">
 <div class="chat__conversation-board__message__person">
   <div class="chat__conversation-board__message__person__avatar"><img
-      src="http://127.0.0.1:5501/wwwroot/Images/{{PROFILE-IMAGE}}" alt="Monika Figi" /></div><span
+      src="http://127.0.0.1:5502/wwwroot/Images/{{PROFILE-IMAGE}}" alt="Monika Figi" /></div><span
     class="chat__conversation-board__message__person__nickname">Monika Figi</span>
 </div>
 <div class="chat__conversation-board__message__context">

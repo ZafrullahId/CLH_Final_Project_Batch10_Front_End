@@ -13,11 +13,11 @@ let profile = () => {
             
             user_name.innerText += response.data.username;
             user_role.innerText += role;
-            profile_image.innerHTML += `<img class="rounded-circle" src="http://127.0.0.1:5501/wwwroot/Images/${response.data.profileImage}" alt="" style="width: 40px; height: 40px;">`
+            profile_image.innerHTML += `<img class="rounded-circle" src="http://127.0.0.1:5502/wwwroot/Images/${response.data.profileImage}" alt="" style="width: 40px; height: 40px;">`
         })
 }
 
-let TEMP = `<img class="rounded-circle me-lg-2" src="http://127.0.0.1:5501/wwwroot/Images/{{IMAGE}}" alt=""
+let TEMP = `<img class="rounded-circle me-lg-2" src="http://127.0.0.1:5502/wwwroot/Images/{{IMAGE}}" alt=""
 style="width: 40px; height: 40px;">
 <span class="d-none d-lg-inline-flex">{{NAME}}</span>`
 let ViewProfile = () =>{

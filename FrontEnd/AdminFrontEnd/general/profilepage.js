@@ -6,7 +6,7 @@ var user_name = document.querySelector('#username');
 var fullname = document.querySelector('#fullname');
 var email = document.querySelector('#email');
 var phone = document.querySelector('#phone');
-let IMAAGETEMPLATE = `<div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="http://127.0.0.1:5501/wwwroot/Images/{{PROFILE-IMAGE}}">
+let IMAAGETEMPLATE = `<div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="http://127.0.0.1:5502/wwwroot/Images/{{PROFILE-IMAGE}}">
 <div class="input--file">
         <span>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
