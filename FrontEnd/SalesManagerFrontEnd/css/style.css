@@ -204,6 +204,7 @@ img {
 .products{
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
 }
 address{
   display: flex;

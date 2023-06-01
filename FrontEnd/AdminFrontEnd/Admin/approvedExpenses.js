@@ -2,6 +2,7 @@ let notification_box = document.querySelector("#notify");
 let drop_down_table = document.querySelector(".table-row");
 let unread_notifications_number = document.querySelector(".unread-notifications-number");
 
+const token = localStorage.getItem("Token")
 
 let NOTIFICATIONTEMPLATE = `<div class="row single-notification-box unread">
 <div class="col-1 profile-picture">
@@ -155,6 +156,7 @@ function Reject(id) {
                 method: 'PUT',
                 body: JSON.stringify(message),
                 headers: {
+                    'Authorization': `Bearer ${token}`,
                     'Content-Type': 'application/json'
                 }
             }
@@ -178,6 +180,7 @@ let ApproveRequest = (id) => {
         method: 'PUT',
         body: null,
         headers: {
+            'Authorization': `Bearer ${token}`,
             'Content-Type': 'application/json'
         }
     }

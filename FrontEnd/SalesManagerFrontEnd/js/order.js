@@ -17,7 +17,7 @@ size.addEventListener('change', (x) => {
 
 let ORDERTABLETEMPLATE = `<tr>
 <td>{{COUNT}}</td>
-<td><a href="#"><img src="http://127.0.0.1:5501/wwwroot/Images/{{IMAGE}}" style="width: 40px; height: 40px;" class="avatar" alt="customer image">
+<td><a href="#"><img src="http://127.0.0.1:5502/wwwroot/Images/{{IMAGE}}" style="width: 40px; height: 40px;" class="avatar" alt="customer image">
         {{CUSTOMER-NAME}}</a></td>
 <td><a href="#" class="view" title="View Delivery Address" data-toggle="tooltip" onclick=deleveryAddress({{ADDRESS-ID}})><i
     class="material-icons">&#xE5C8;</i></a></td>
@@ -32,7 +32,7 @@ let ORDERTABLETEMPLATE = `<tr>
 </tr>`
 
 let DROPDOWNTEMPLATE = `<div class="card-1 card">
-<img class="product-image" src="http://127.0.0.1:5501/wwwroot/Images/{{IMAGE}}" alt="product image">
+<img class="product-image" src="http://127.0.0.1:5502/wwwroot/Images/{{IMAGE}}" alt="product image">
 <span class="product-price">{{PRODUCT-NAME}}</span>
 <span class="product-price">&#8358;{{PRICE}}</span>
 </div>`
@@ -140,7 +140,7 @@ let getOrderedProducts = (id) => {
     form.classList.add("products")
     let html = `<div class="">
     <div class="card-1 card">
-<img class="product-image" src="http://127.0.0.1:5501/wwwroot/Images/{{IMAGE}}" alt="product image">
+<img class="product-image" src="http://127.0.0.1:5502/wwwroot/Images/{{IMAGE}}" alt="product image">
 <span class="product-price">{{PRODUCT-NAME}}</span>
 <small>x{{QUANTITY}}</small>
 <span class="product-price">&#8358;{{PRICE}}</span>
@@ -193,7 +193,7 @@ let getOrderedProducts = (id) => {
                         displayFilteredOrderTable("all")
                     }
                     else {
-                        window.alert(response.message)
+                        swal("Opps!!!", `${response.message}`, "warning");
                     }
                 })
         }
@@ -269,7 +269,7 @@ function displayMatches() {
         }
         return `<tr>
             <td>${count}</td>
-            <td><a href="#"><img src="http://127.0.0.1:5501/wwwroot/Images/${x.customerDto.imageUrl}" style="width: 40px; height: 40px;" class="avatar" alt="customer image">
+            <td><a href="#"><img src="http://127.0.0.1:5502/wwwroot/Images/${x.customerDto.imageUrl}" style="width: 40px; height: 40px;" class="avatar" alt="customer image">
                     ${x.customerDto.fullName}</a></td>
             <td><a href="#" class="view" title="View Delivery Address" data-toggle="tooltip"><i
                 class="material-icons">&#xE5C8;</i></a></td>

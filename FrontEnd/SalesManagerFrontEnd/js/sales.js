@@ -2,7 +2,7 @@ let t_body = document.querySelector('.tbody')
 let products = document.querySelector('#product')
 let ORDERTABLETEMPLATE = `<tr>
 <td>{{COUNT}}</td>
-<td><a href="#"><img src="http://127.0.0.1:5501/wwwroot/Images/{{IMAGE}}" style="width: 40px; height: 40px;" class="avatar" alt="customer image">
+<td><a href="#"><img src="http://127.0.0.1:5502/wwwroot/Images/{{IMAGE}}" style="width: 40px; height: 40px;" class="avatar" alt="customer image">
         {{CUSTOMER-NAME}}</a></td>
 <td><a href="#" class="view" title="View Delivery Address" data-toggle="tooltip" onclick=deleveryAddress({{ADDRESS-ID}})><i
     class="material-icons">&#xE5C8;</i></a></td>
@@ -55,7 +55,7 @@ let getOrderedProducts = (id) => {
     form.classList.add("products")
     let html = `<div class="">
     <div class="card-1 card">
-<img class="product-image" src="http://127.0.0.1:5501/wwwroot/Images/{{IMAGE}}" alt="product image">
+<img class="product-image" src="http://127.0.0.1:5502/wwwroot/Images/{{IMAGE}}" alt="product image">
 <span class="product-price">{{PRODUCT-NAME}}</span>
 <small>x{{QUANTITY}}</small>
 <span class="product-price">&#8358;{{PRICE}}</span>
@@ -144,6 +144,7 @@ let filterTableByProductName = (value) => {
                     .replace('{{CUSTOMER-NAME}}', x.customerDto.fullName)
                     .replace('{{NET-AMOUNT}}', x.amountPaid)
                     .replace('{{ADDRESS-ID}}', x.addressId)
+                    .replace('{{PRODUCT-ID}}', x.productDto.productId)
                 t_body.innerHTML += sales
                 count++
             });
@@ -173,7 +174,7 @@ function displayMatches() {
         count++;
         return `<tr>
         <td>${count}</td>
-        <td><a href="#"><img src="http://127.0.0.1:5501/wwwroot/Images/${x.customerDto.imageUrl}" style="width: 40px; height: 40px;" class="avatar" alt="customer image">
+        <td><a href="#"><img src="http://127.0.0.1:5502/wwwroot/Images/${x.customerDto.imageUrl}" style="width: 40px; height: 40px;" class="avatar" alt="customer image">
                 ${x.customerDto.fullName}</a></td>
         <td><a href="#" class="view" title="View Delivery Address" data-toggle="tooltip" onclick=deleveryAddress(${x.addressId})><i
             class="material-icons">&#xE5C8;</i></a></td>

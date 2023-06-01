@@ -10,6 +10,8 @@ let sales_on_a_product = document.querySelector('#sales-table');
 let table_head = document.querySelector('#t-head');
 let show_all = document.querySelector('#colaps');
 let year = document.querySelector('.yearpicker');
+let graph = document.querySelector('#first-graph')
+// graph.innerHTML = ""
 
 let displayProfit = () => {
     fetch('https://localhost:5001/api/Sales/CalculateProfit')

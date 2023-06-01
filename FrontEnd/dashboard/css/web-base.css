@@ -1,0 +1,8 @@
+/* These styles are only for rendering in a browser */
+
+.web-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 50px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}

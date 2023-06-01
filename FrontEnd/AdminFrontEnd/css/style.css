@@ -426,3 +426,10 @@
 .is-open{
     transform: translateY(0);
 }
+
+.swal2-actions{
+    gap: 8px !important;
+}
+.swal2-input{
+    margin: 10px !important;
+}

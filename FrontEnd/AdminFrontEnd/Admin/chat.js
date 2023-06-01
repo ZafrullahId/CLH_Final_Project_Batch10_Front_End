@@ -3,6 +3,9 @@ let button = document.querySelector('.send-message-button')
 let inp = document.querySelector('#input-message')
 let emojis = document.querySelector(".emojis")
 let em = document.getElementsByTagName("li")
+
+const token = localStorage.getItem("Token")
+
 let CHATTEMPLATE =
   `<div class="chat__conversation-board__message-container" id="id{{SenderId}}">
 <div class="chat__conversation-board__message__person">
@@ -109,6 +112,7 @@ let SendAMessage = () => {
     method: 'POST',
     body: JSON.stringify(text),
     headers: {
+      'Authorization': `Bearer ${token}`,
       'Content-Type': 'application/json'
     }
   }
@@ -124,6 +128,7 @@ let SendAMessage = () => {
         window.alert(response.message)
       }
     })
+    
 }
 
 let markAllAsRead = () => {

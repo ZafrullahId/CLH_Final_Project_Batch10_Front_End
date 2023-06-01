@@ -1,12 +1,11 @@
-const myform = document.querySelector("#review-form")
-let review_input = document.querySelector('#text')
-var id = localStorage.getItem("Id")
+const myform = document.querySelector("#reset-password")
 myform.addEventListener('submit', (x) => {
     x.preventDefault()
     let sendForm = new FormData(myform)
-    fetch(`https://localhost:5001/api/Review/CreateReview/${id}`,
+    console.log(sendForm.get("name"))
+    fetch(`https://localhost:5001/api/VerificationCode/ResetPassword`,
         {
-            method: "POST",
+            method: "PUT",
             body: sendForm,
             
         })
@@ -17,8 +16,8 @@ myform.addEventListener('submit', (x) => {
         .then(function (value) {
             console.log(value.success);
             if (value.success == true) {
-                window.alert(value.message);
-                review_input.value = ""
+                localStorage.setItem("resetId", value.id)
+                location.href = "resetpasswordverification.html"
             }
             else {
                 window.alert(value.message);
@@ -27,8 +26,5 @@ myform.addEventListener('submit', (x) => {
         })
         .catch((res) => {
             window.alert("UnAuthorized")
-
-            // localStorage.clear();
-            // location.href = "/Login/login.html"
         })
 })

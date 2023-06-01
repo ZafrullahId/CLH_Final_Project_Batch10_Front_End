@@ -263,6 +263,7 @@ async function requestForm() {
 }
 
 function deleteRequest(id) {
+
     Swal.fire(
         {
             title: 'Are you sure?',
