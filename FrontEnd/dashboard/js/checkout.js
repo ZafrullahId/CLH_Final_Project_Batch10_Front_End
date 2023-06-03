@@ -168,7 +168,6 @@ my_order_form.addEventListener('submit', (x) => {
         .then(res => res.json())
         .then(function (response) {
             if (response.success == true) {
-                window.alert(response.message)
                 initiatePayment(response.message)
                 // Swal.fire("Success", `Successfully Ordererd`, "success");
             }
@@ -179,9 +178,6 @@ my_order_form.addEventListener('submit', (x) => {
 })
 
 
-// const my_order_form = document.querySelector('#order-form')
-// my_order_form.addEventListener('submit', (x) =>{
-//     x.preventDefault()
 let initiatePayment = (orderId) => {
 
     const inputes = {
